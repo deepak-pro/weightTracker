@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="CardViewController" customModule="weightTracker" customModuleProvider="target">
+            <connections>
+                <outlet property="handleArea" destination="n7x-04-pcP" id="Tbx-5s-clD"/>
+                <outlet property="view" destination="iN0-l3-epB" id="ae1-Ul-BKF"/>
+                <outlet property="weightLabel" destination="AtF-2W-D5A" id="4HC-dK-b7S"/>
+                <outlet property="weightPickerView" destination="86N-RQ-YQ7" id="yPF-2Q-RCg"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="400"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="n7x-04-pcP">
+                    <rect key="frame" x="0.0" y="0.0" width="320" height="60"/>
+                    <subviews>
+                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="drawerHandle" translatesAutoresizingMaskIntoConstraints="NO" id="sma-IO-fiy">
+                            <rect key="frame" x="140" y="8" width="40" height="5"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="40" id="SeJ-53-euI"/>
+                                <constraint firstAttribute="height" constant="5" id="pIl-8N-mrI"/>
+                            </constraints>
+                        </imageView>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Add today's weight" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="a0g-Ug-anJ">
+                            <rect key="frame" x="28" y="13" width="264" height="39"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="39" id="b2T-Q3-cbF"/>
+                                <constraint firstAttribute="width" constant="264" id="q9y-IK-K3l"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" name="AvenirNextCondensed-Regular" family="Avenir Next Condensed" pointSize="24"/>
+                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                    </subviews>
+                    <color key="backgroundColor" red="0.0" green="0.52549019607843139" blue="0.80784313725490198" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <constraints>
+                        <constraint firstItem="sma-IO-fiy" firstAttribute="top" secondItem="n7x-04-pcP" secondAttribute="top" constant="8" id="4HX-IV-lv4"/>
+                        <constraint firstAttribute="height" constant="60" id="JwW-A3-vt8"/>
+                        <constraint firstItem="a0g-Ug-anJ" firstAttribute="centerX" secondItem="n7x-04-pcP" secondAttribute="centerX" id="Uzh-x6-lEQ"/>
+                        <constraint firstAttribute="bottom" secondItem="a0g-Ug-anJ" secondAttribute="bottom" constant="8" id="XEq-qM-Fbc"/>
+                        <constraint firstItem="sma-IO-fiy" firstAttribute="centerX" secondItem="n7x-04-pcP" secondAttribute="centerX" id="lQy-Ke-lCB"/>
+                    </constraints>
+                </view>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="u1O-WN-9M5">
+                    <rect key="frame" x="50" y="334" width="220" height="50"/>
+                    <color key="backgroundColor" red="0.18131926655769348" green="0.52721375226974487" blue="0.80703932046890259" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="50" id="4Fq-ae-19Z"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" name="AvenirNextCondensed-Regular" family="Avenir Next Condensed" pointSize="21"/>
+                    <state key="normal" title="Done">
+                        <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </state>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                            <integer key="value" value="12"/>
+                        </userDefinedRuntimeAttribute>
+                        <userDefinedRuntimeAttribute type="boolean" keyPath="clipToBounds" value="YES"/>
+                    </userDefinedRuntimeAttributes>
+                </button>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AtF-2W-D5A">
+                    <rect key="frame" x="39.5" y="79" width="241" height="37"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="241" id="g8w-XV-6sV"/>
+                        <constraint firstAttribute="height" constant="37" id="mxZ-qL-a1k"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" name="AvenirNextCondensed-Regular" family="Avenir Next Condensed" pointSize="30"/>
+                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="86N-RQ-YQ7">
+                    <rect key="frame" x="67" y="144" width="186" height="170"/>
+                    <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="186" id="UCS-v3-yOI"/>
+                        <constraint firstAttribute="height" constant="170" id="xOm-XZ-J8b"/>
+                    </constraints>
+                </pickerView>
+            </subviews>
+            <color key="backgroundColor" red="0.19607843137254902" green="0.19607843137254902" blue="0.19607843137254902" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="AtF-2W-D5A" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="2MV-7h-t8b"/>
+                <constraint firstItem="n7x-04-pcP" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" id="5dI-Ea-KFt"/>
+                <constraint firstItem="86N-RQ-YQ7" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="DL0-dd-iIW"/>
+                <constraint firstItem="u1O-WN-9M5" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="50" id="VNg-Yx-lF0"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="u1O-WN-9M5" secondAttribute="bottom" constant="16" id="YJ2-cC-IeE"/>
+                <constraint firstItem="AtF-2W-D5A" firstAttribute="top" secondItem="n7x-04-pcP" secondAttribute="bottom" constant="19" id="fef-7q-5Hk"/>
+                <constraint firstItem="u1O-WN-9M5" firstAttribute="top" secondItem="86N-RQ-YQ7" secondAttribute="bottom" constant="20" id="q07-fW-naa"/>
+                <constraint firstItem="n7x-04-pcP" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="sL8-2E-wpJ"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="u1O-WN-9M5" secondAttribute="trailing" constant="50" id="uvQ-Ar-QQv"/>
+                <constraint firstItem="n7x-04-pcP" firstAttribute="trailing" secondItem="vUN-kp-3ea" secondAttribute="trailing" id="vA6-e8-Wxz"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
+            <point key="canvasLocation" x="89.599999999999994" y="256.37181409295357"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="drawerHandle" width="200" height="40"/>
+    </resources>
+</document>
