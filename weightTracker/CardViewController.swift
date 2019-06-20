@@ -19,6 +19,8 @@ class CardViewController: UIViewController  , UIPickerViewDelegate , UIPickerVie
     var selectComponent = 0
     var selectWeight = 0
     
+    @IBOutlet weak var doneButton: UIButton!
+    
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 2
     }
@@ -95,10 +97,6 @@ class CardViewController: UIViewController  , UIPickerViewDelegate , UIPickerVie
         weightPickerView.dataSource = self
         extractComponentFromPreviousWeight()
         setPreviousWeight()
-    }
-    
-    @IBAction func doneTapped(_ sender: Any) {
-        print("Done Button Tapped")
     }
     
 

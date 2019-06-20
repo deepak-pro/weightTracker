@@ -227,6 +227,8 @@ class ViewController: UIViewController , ScrollableGraphViewDataSource {
     override var preferredStatusBarStyle: UIStatusBarStyle {
         return .lightContent
     }
+    
+    
 
 }
 

@@ -53,26 +53,6 @@
                         <constraint firstItem="sma-IO-fiy" firstAttribute="centerX" secondItem="n7x-04-pcP" secondAttribute="centerX" id="lQy-Ke-lCB"/>
                     </constraints>
                 </view>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="u1O-WN-9M5">
-                    <rect key="frame" x="50" y="334" width="220" height="50"/>
-                    <color key="backgroundColor" red="0.18131926655769348" green="0.52721375226974487" blue="0.80703932046890259" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                    <constraints>
-                        <constraint firstAttribute="height" constant="50" id="4Fq-ae-19Z"/>
-                    </constraints>
-                    <fontDescription key="fontDescription" name="AvenirNextCondensed-Regular" family="Avenir Next Condensed" pointSize="21"/>
-                    <state key="normal" title="Done">
-                        <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                    </state>
-                    <userDefinedRuntimeAttributes>
-                        <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                            <integer key="value" value="12"/>
-                        </userDefinedRuntimeAttribute>
-                        <userDefinedRuntimeAttribute type="boolean" keyPath="clipToBounds" value="YES"/>
-                    </userDefinedRuntimeAttributes>
-                    <connections>
-                        <action selector="doneTapped:" destination="-1" eventType="touchUpInside" id="6CD-Ie-BI0"/>
-                    </connections>
-                </button>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AtF-2W-D5A">
                     <rect key="frame" x="39.5" y="79" width="241" height="37"/>
                     <constraints>
@@ -84,23 +64,22 @@
                     <nil key="highlightedColor"/>
                 </label>
                 <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="86N-RQ-YQ7">
-                    <rect key="frame" x="67" y="136" width="186" height="178"/>
+                    <rect key="frame" x="67" y="136" width="186" height="162"/>
                     <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="162" id="bWh-85-XF1"/>
+                    </constraints>
                 </pickerView>
             </subviews>
             <color key="backgroundColor" red="0.19607843137254902" green="0.19607843137254902" blue="0.19607843137254902" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
-                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="86N-RQ-YQ7" secondAttribute="trailing" constant="67" id="0Hr-Tz-dHd"/>
                 <constraint firstItem="AtF-2W-D5A" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="2MV-7h-t8b"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="86N-RQ-YQ7" secondAttribute="trailing" constant="67" id="31a-w6-1hZ"/>
                 <constraint firstItem="n7x-04-pcP" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" id="5dI-Ea-KFt"/>
-                <constraint firstItem="u1O-WN-9M5" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="50" id="VNg-Yx-lF0"/>
-                <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="u1O-WN-9M5" secondAttribute="bottom" constant="16" id="YJ2-cC-IeE"/>
-                <constraint firstItem="86N-RQ-YQ7" firstAttribute="top" secondItem="AtF-2W-D5A" secondAttribute="bottom" constant="20" id="bIt-CI-8GK"/>
-                <constraint firstItem="u1O-WN-9M5" firstAttribute="top" secondItem="86N-RQ-YQ7" secondAttribute="bottom" constant="20" id="elz-jV-WpY"/>
+                <constraint firstItem="86N-RQ-YQ7" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="67" id="5n2-JD-eTJ"/>
+                <constraint firstItem="86N-RQ-YQ7" firstAttribute="top" secondItem="AtF-2W-D5A" secondAttribute="bottom" constant="20" id="8gF-0F-Zk9"/>
                 <constraint firstItem="AtF-2W-D5A" firstAttribute="top" secondItem="n7x-04-pcP" secondAttribute="bottom" constant="19" id="fef-7q-5Hk"/>
-                <constraint firstItem="86N-RQ-YQ7" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="67" id="lwg-Yf-fyq"/>
                 <constraint firstItem="n7x-04-pcP" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="sL8-2E-wpJ"/>
-                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="u1O-WN-9M5" secondAttribute="trailing" constant="50" id="uvQ-Ar-QQv"/>
                 <constraint firstItem="n7x-04-pcP" firstAttribute="trailing" secondItem="vUN-kp-3ea" secondAttribute="trailing" id="vA6-e8-Wxz"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
