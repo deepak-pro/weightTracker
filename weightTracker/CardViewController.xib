@@ -69,6 +69,9 @@
                         </userDefinedRuntimeAttribute>
                         <userDefinedRuntimeAttribute type="boolean" keyPath="clipToBounds" value="YES"/>
                     </userDefinedRuntimeAttributes>
+                    <connections>
+                        <action selector="doneTapped:" destination="-1" eventType="touchUpInside" id="6CD-Ie-BI0"/>
+                    </connections>
                 </button>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AtF-2W-D5A">
                     <rect key="frame" x="39.5" y="79" width="241" height="37"/>
@@ -81,23 +84,21 @@
                     <nil key="highlightedColor"/>
                 </label>
                 <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="86N-RQ-YQ7">
-                    <rect key="frame" x="67" y="144" width="186" height="170"/>
+                    <rect key="frame" x="67" y="136" width="186" height="178"/>
                     <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                    <constraints>
-                        <constraint firstAttribute="width" constant="186" id="UCS-v3-yOI"/>
-                        <constraint firstAttribute="height" constant="170" id="xOm-XZ-J8b"/>
-                    </constraints>
                 </pickerView>
             </subviews>
             <color key="backgroundColor" red="0.19607843137254902" green="0.19607843137254902" blue="0.19607843137254902" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="86N-RQ-YQ7" secondAttribute="trailing" constant="67" id="0Hr-Tz-dHd"/>
                 <constraint firstItem="AtF-2W-D5A" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="2MV-7h-t8b"/>
                 <constraint firstItem="n7x-04-pcP" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" id="5dI-Ea-KFt"/>
-                <constraint firstItem="86N-RQ-YQ7" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="DL0-dd-iIW"/>
                 <constraint firstItem="u1O-WN-9M5" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="50" id="VNg-Yx-lF0"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="u1O-WN-9M5" secondAttribute="bottom" constant="16" id="YJ2-cC-IeE"/>
+                <constraint firstItem="86N-RQ-YQ7" firstAttribute="top" secondItem="AtF-2W-D5A" secondAttribute="bottom" constant="20" id="bIt-CI-8GK"/>
+                <constraint firstItem="u1O-WN-9M5" firstAttribute="top" secondItem="86N-RQ-YQ7" secondAttribute="bottom" constant="20" id="elz-jV-WpY"/>
                 <constraint firstItem="AtF-2W-D5A" firstAttribute="top" secondItem="n7x-04-pcP" secondAttribute="bottom" constant="19" id="fef-7q-5Hk"/>
-                <constraint firstItem="u1O-WN-9M5" firstAttribute="top" secondItem="86N-RQ-YQ7" secondAttribute="bottom" constant="20" id="q07-fW-naa"/>
+                <constraint firstItem="86N-RQ-YQ7" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="67" id="lwg-Yf-fyq"/>
                 <constraint firstItem="n7x-04-pcP" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="sL8-2E-wpJ"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="u1O-WN-9M5" secondAttribute="trailing" constant="50" id="uvQ-Ar-QQv"/>
                 <constraint firstItem="n7x-04-pcP" firstAttribute="trailing" secondItem="vUN-kp-3ea" secondAttribute="trailing" id="vA6-e8-Wxz"/>

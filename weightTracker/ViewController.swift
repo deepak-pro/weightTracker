@@ -103,7 +103,6 @@ class ViewController: UIViewController , ScrollableGraphViewDataSource {
             var fractionComplete = translation.y / cardHeight
             fractionComplete = cardVisible ? fractionComplete : -fractionComplete
             updateIntervalTransition(fractionCompleted: fractionComplete)
-            print(fractionComplete)
         case .ended:
             continueInteractivetransition()
         default:
