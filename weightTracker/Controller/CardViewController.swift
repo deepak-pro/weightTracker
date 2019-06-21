@@ -10,6 +10,7 @@ import UIKit
 
 class CardViewController: UIViewController  , UIPickerViewDelegate , UIPickerViewDataSource{
     
+    @IBOutlet weak var handleLabel: UILabel!
     var weightArray = [Int]()
     var pointArray = [Int]()
     var finalWeight = Float()
@@ -18,6 +19,7 @@ class CardViewController: UIViewController  , UIPickerViewDelegate , UIPickerVie
     var previousWeight = 86.5
     var selectComponent = 0
     var selectWeight = 0
+    @IBOutlet weak var doneButtonOut: UIButton!
     
     @IBOutlet weak var doneButton: UIButton!
     
@@ -97,7 +99,17 @@ class CardViewController: UIViewController  , UIPickerViewDelegate , UIPickerVie
         weightPickerView.dataSource = self
         extractComponentFromPreviousWeight()
         setPreviousWeight()
+        doneButtonOut.layer.cornerRadius = 20.0
+        doneButtonOut.clipsToBounds = true
+        doneButtonOut.layer.borderColor = UIColor.white.cgColor
+        doneButtonOut.layer.borderWidth = 2.0
+        doneButtonOut.tintColor = UIColor.white
     }
+    
+    @IBAction func doneButton(_ sender: Any) {
+        
+    }
+    
     
 
 

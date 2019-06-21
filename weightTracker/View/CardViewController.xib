@@ -12,7 +12,9 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="CardViewController" customModule="weightTracker" customModuleProvider="target">
             <connections>
+                <outlet property="doneButtonOut" destination="uHi-We-9jL" id="tOn-ga-0gy"/>
                 <outlet property="handleArea" destination="n7x-04-pcP" id="Tbx-5s-clD"/>
+                <outlet property="handleLabel" destination="a0g-Ug-anJ" id="9dA-w0-RYt"/>
                 <outlet property="view" destination="iN0-l3-epB" id="ae1-Ul-BKF"/>
                 <outlet property="weightLabel" destination="AtF-2W-D5A" id="4HC-dK-b7S"/>
                 <outlet property="weightPickerView" destination="86N-RQ-YQ7" id="yPF-2Q-RCg"/>
@@ -20,7 +22,7 @@
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <view contentMode="scaleToFill" id="iN0-l3-epB">
-            <rect key="frame" x="0.0" y="0.0" width="320" height="400"/>
+            <rect key="frame" x="0.0" y="0.0" width="320" height="380"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="n7x-04-pcP">
@@ -70,6 +72,17 @@
                         <constraint firstAttribute="height" constant="162" id="bWh-85-XF1"/>
                     </constraints>
                 </pickerView>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uHi-We-9jL">
+                    <rect key="frame" x="88" y="331" width="144" height="39"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="39" id="70b-mg-lgz"/>
+                        <constraint firstAttribute="width" constant="144" id="bxC-0u-5nV"/>
+                    </constraints>
+                    <state key="normal" title="Button"/>
+                    <connections>
+                        <action selector="doneButton:" destination="-1" eventType="touchUpInside" id="hSq-kd-6gM"/>
+                    </connections>
+                </button>
             </subviews>
             <color key="backgroundColor" red="0.19607843137254902" green="0.19607843137254902" blue="0.19607843137254902" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
@@ -78,13 +91,15 @@
                 <constraint firstItem="n7x-04-pcP" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" id="5dI-Ea-KFt"/>
                 <constraint firstItem="86N-RQ-YQ7" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="67" id="5n2-JD-eTJ"/>
                 <constraint firstItem="86N-RQ-YQ7" firstAttribute="top" secondItem="AtF-2W-D5A" secondAttribute="bottom" constant="20" id="8gF-0F-Zk9"/>
+                <constraint firstItem="uHi-We-9jL" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="etn-p3-u3o"/>
                 <constraint firstItem="AtF-2W-D5A" firstAttribute="top" secondItem="n7x-04-pcP" secondAttribute="bottom" constant="19" id="fef-7q-5Hk"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="uHi-We-9jL" secondAttribute="bottom" constant="10" id="fsY-gN-4l1"/>
                 <constraint firstItem="n7x-04-pcP" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="sL8-2E-wpJ"/>
                 <constraint firstItem="n7x-04-pcP" firstAttribute="trailing" secondItem="vUN-kp-3ea" secondAttribute="trailing" id="vA6-e8-Wxz"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
-            <point key="canvasLocation" x="89.599999999999994" y="256.37181409295357"/>
+            <point key="canvasLocation" x="89.599999999999994" y="260.86956521739131"/>
         </view>
     </objects>
     <resources>

@@ -62,7 +62,7 @@ class ViewController: UIViewController , ScrollableGraphViewDataSource , UIViewC
         graphView.dataSource = self as! ScrollableGraphViewDataSource
         setUpGraphView()
         setUpCard()
-        self.cardViewController.view.layer.cornerRadius = 12
+        self.cardViewController.view.layer.cornerRadius = 0
     }
     
     func setUpCard(){
@@ -137,7 +137,7 @@ class ViewController: UIViewController , ScrollableGraphViewDataSource , UIViewC
                 case .expanded:
                     self.cardViewController.view.layer.cornerRadius = 12
                 case .collapsed:
-                    self.cardViewController.view.layer.cornerRadius = 12
+                    self.cardViewController.view.layer.cornerRadius = 0
                 }
             }
             
