@@ -8,15 +8,17 @@
 
 import UIKit
 import ScrollableGraphView
+import AudioToolbox
 
 class ViewController: UIViewController , ScrollableGraphViewDataSource , UIViewControllerTransitioningDelegate {
 
     @IBOutlet weak var graphView: ScrollableGraphView!
     
-    let linePlotData = [68.5,68.4,69,68,68,68.5,67.5,67.4,67.1,67.9]
+    var linePlotData = [68.5,68.4,69,68,68,68.5,67.5,67.4,67.1,67.9]
     var maxScale = 70
     var minScale = 66
     
+    @IBOutlet weak var scaleSegment: UISegmentedControl!
     @IBOutlet weak var menuButton: UIButton!
     let transition = CircularTransition()
     
@@ -248,6 +250,24 @@ class ViewController: UIViewController , ScrollableGraphViewDataSource , UIViewC
         return transition
         
     }
+    
+    
+    @IBAction func optionButtontapped(_ sender: Any) {
+        performSegue(withIdentifier: "showOptions", sender: self)
+    }
+    
+    @IBAction func optionbuttonTouchDown(_ sender: Any) {
+        AudioServicesPlaySystemSound(1519)
+    }
+    
+    
+    
+    @IBAction func segmentChanged(_ sender: Any) {
+        print("Selected Segment is \(scaleSegment.selectedSegmentIndex)")
+        linePlotData.shuffle()
+        graphView.reload()
+    }
+    
     
     override var preferredStatusBarStyle: UIStatusBarStyle {
         return .lightContent

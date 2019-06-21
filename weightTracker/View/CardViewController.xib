@@ -81,6 +81,7 @@
                     <state key="normal" title="Save"/>
                     <connections>
                         <action selector="doneButton:" destination="-1" eventType="touchUpInside" id="hSq-kd-6gM"/>
+                        <action selector="saveTouchDown:" destination="-1" eventType="touchDown" id="Sh4-dA-zpe"/>
                     </connections>
                 </button>
             </subviews>

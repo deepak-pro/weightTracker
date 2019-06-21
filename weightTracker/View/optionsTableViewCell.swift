@@ -10,6 +10,7 @@ import UIKit
 
 class optionsTableViewCell: UITableViewCell {
 
+    @IBOutlet weak var textlabel: UILabel!
     override func awakeFromNib() {
         super.awakeFromNib()
         

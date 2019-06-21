@@ -7,15 +7,20 @@
 //
 
 import UIKit
+import AudioToolbox
 
 class optionsViewController: UIViewController , UITableViewDelegate , UITableViewDataSource {
+    
+    var options : [String] = ["Customize Records" , "Delete All Records"]
+    
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 10
+        return options.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "optionCell", for: indexPath)
-        cell.textLabel?.text = String("Option \(indexPath.row)")
+        let cell = tableView.dequeueReusableCell(withIdentifier: "optionCell", for: indexPath) as! optionsTableViewCell
+        cell.textlabel.text = options[indexPath.row]
         return cell
     }
     
@@ -36,6 +41,9 @@ class optionsViewController: UIViewController , UITableViewDelegate , UITableVie
         self.dismiss(animated: true, completion: nil)
     }
     
+    @IBAction func dismissTouchDown(_ sender: Any) {
+        AudioServicesPlaySystemSound(1519)
+    }
     
     
     @IBAction func backButton(_ sender: Any) {
