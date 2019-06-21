@@ -8,10 +8,11 @@
 
 import UIKit
 import AudioToolbox
+import StoreKit
 
 class optionsViewController: UIViewController , UITableViewDelegate , UITableViewDataSource {
     
-    var options : [String] = ["Customize Records" , "Delete All Records"]
+    var options : [String] = ["Customize Records" ,"Rate this app" ,  "Delete All Records"]
     
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -28,6 +29,22 @@ class optionsViewController: UIViewController , UITableViewDelegate , UITableVie
         return 80
     }
     
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if indexPath.row == options.count - 1 {
+            let alert = UIAlertController(title: "Are you sure you want to delete all the records", message: "This action will delete all the records you added", preferredStyle: .actionSheet)
+            alert.addAction(UIAlertAction(title: "Delete", style: .destructive, handler: { (action) in
+                
+            }))
+            alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
+            self.present(alert ,animated: true , completion: nil)
+            AudioServicesPlaySystemSound(1521)
+        }
+        
+        if indexPath.row == options.count - 2 {
+            AudioServicesPlaySystemSound(1519)
+            SKStoreReviewController.requestReview()
+        }
+    }
 
     
     @IBOutlet weak var dismissButton: UIButton!

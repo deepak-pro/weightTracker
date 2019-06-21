@@ -89,7 +89,7 @@ class ViewController: UIViewController , ScrollableGraphViewDataSource , UIViewC
     func handleCardTap(recognzier : UITapGestureRecognizer){
         switch recognzier.state {
         case .ended:
-            animateTransitionIfNeeded(state: nextState, duration: 0.9)
+            animateTransitionIfNeeded(state: nextState, duration: 0.6)
         default:
             break
         }
@@ -99,7 +99,7 @@ class ViewController: UIViewController , ScrollableGraphViewDataSource , UIViewC
     func handleCardPan (recognzier : UIPanGestureRecognizer){
         switch recognzier.state {
         case .began:
-            startInteractiveTransition(state: nextState, duration: 0.9)
+            startInteractiveTransition(state: nextState, duration: 0.6)
         case .changed :
             let translation = recognzier.translation(in : self.cardViewController.handleArea)
             var fractionComplete = translation.y / cardHeight
