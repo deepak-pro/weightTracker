@@ -64,6 +64,10 @@ class CardViewController: UIViewController  , UIPickerViewDelegate , UIPickerVie
             finalWeightMGComponent = pointArray[row]
         }
         weightLabel.text = "\(finalWeightKGComponent).\(finalWeightMGComponent) kg"
+        doneButtonOut.layer.borderColor = UIColor.white.cgColor
+        doneButtonOut.layer.borderWidth = 2.0
+        doneButtonOut.backgroundColor = UIColor.clear
+        doneButtonOut.setTitle("Save", for: .normal)
     }
     
     func extractComponentFromPreviousWeight(){
@@ -107,6 +111,11 @@ class CardViewController: UIViewController  , UIPickerViewDelegate , UIPickerVie
     }
     
     @IBAction func doneButton(_ sender: Any) {
+        let blueShade = UIColor(red: 0/255, green: 134/255, blue: 206/255, alpha: 1.0)
+        
+        doneButtonOut.backgroundColor = blueShade
+        doneButtonOut.setTitle("Saved", for: .normal)
+        doneButtonOut.layer.borderWidth = 0.00
         
     }
     
