@@ -23,7 +23,7 @@ class ViewController: UIViewController , ScrollableGraphViewDataSource {
     }
     
     var cardViewController : CardViewController!
-    var visualEffectView: UIVisualEffectView!
+//    var visualEffectView: UIVisualEffectView!
     
     let cardHeight:CGFloat = 400
     let cardHandleAreaHeight : CGFloat = 80
@@ -63,9 +63,6 @@ class ViewController: UIViewController , ScrollableGraphViewDataSource {
     }
     
     func setUpCard(){
-        visualEffectView = UIVisualEffectView()
-        visualEffectView.frame = self.view.frame
-        self.view.addSubview(visualEffectView)
         
         cardViewController = CardViewController(nibName: "CardViewController" , bundle : nil)
         self.addChild(cardViewController)
@@ -144,18 +141,18 @@ class ViewController: UIViewController , ScrollableGraphViewDataSource {
             cornerRadiuAnimator.startAnimation()
             runningAnimations.append(cornerRadiuAnimator)
             
-            let blurAnimator = UIViewPropertyAnimator(duration: duration, curve: .linear) {
-                switch state {
-                case .expanded:
-                    self.visualEffectView.effect = UIBlurEffect(style: .dark)
-                    self.visualEffectView.alpha  = 0.7
-                case .collapsed:
-                    self.visualEffectView.effect = nil
-                }
-            }
-            
-            blurAnimator.startAnimation()
-            runningAnimations.append(blurAnimator)
+//            let blurAnimator = UIViewPropertyAnimator(duration: duration, curve: .linear) {
+//                switch state {
+//                case .expanded:
+////                    self.visualEffectView.effect = UIBlurEffect(style: .dark)
+////                    self.visualEffectView.alpha  = 0.7
+//                case .collapsed:
+////                    self.visualEffectView.effect = nil
+//                }
+//            }
+//
+////            blurAnimator.startAnimation()
+////            runningAnimations.append(blurAnimator)
             
         }
         

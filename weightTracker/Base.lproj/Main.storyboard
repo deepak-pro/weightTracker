@@ -39,6 +39,9 @@
                                             <constraint firstAttribute="width" constant="35" id="wPx-63-3ZL"/>
                                         </constraints>
                                         <state key="normal" image="menuBar"/>
+                                        <connections>
+                                            <segue destination="ReN-Li-Mrg" kind="show" id="Ytn-5r-c5t"/>
+                                        </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Statistics" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3ui-wY-di1">
                                         <rect key="frame" x="8" y="58" width="148" height="34"/>
@@ -263,10 +266,71 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="101.59999999999999" y="130.88455772113943"/>
+            <point key="canvasLocation" x="-150" y="116"/>
+        </scene>
+        <!--Options-->
+        <scene sceneID="SSI-QO-nd1">
+            <objects>
+                <viewController id="ReN-Li-Mrg" customClass="optionsViewController" customModule="weightTracker" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="lzS-xE-vti">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pkg-MH-X4y">
+                                <rect key="frame" x="0.0" y="20" width="375" height="90"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Options" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KPk-Ez-KZE">
+                                        <rect key="frame" x="96.5" y="21.5" width="182" height="47"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="47" id="eM7-OS-RvI"/>
+                                            <constraint firstAttribute="width" constant="182" id="rW7-cu-qWe"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="AvenirNextCondensed-Regular" family="Avenir Next Condensed" pointSize="27"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="shq-GY-KPD">
+                                        <rect key="frame" x="8" y="27.5" width="35" height="35"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="35" id="hA8-qN-vxV"/>
+                                            <constraint firstAttribute="height" constant="35" id="nAN-HW-zGe"/>
+                                        </constraints>
+                                        <state key="normal" image="backArrow"/>
+                                        <connections>
+                                            <action selector="backButton:" destination="ReN-Li-Mrg" eventType="touchUpInside" id="4TM-Nx-cht"/>
+                                            <segue destination="BYZ-38-t0r" kind="popoverPresentation" popoverAnchorView="shq-GY-KPD" id="aDh-dV-11M">
+                                                <popoverArrowDirection key="popoverArrowDirection" up="YES" down="YES" left="YES" right="YES"/>
+                                            </segue>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstItem="shq-GY-KPD" firstAttribute="leading" secondItem="pkg-MH-X4y" secondAttribute="leading" constant="8" id="8BK-2f-hn8"/>
+                                    <constraint firstItem="KPk-Ez-KZE" firstAttribute="centerY" secondItem="pkg-MH-X4y" secondAttribute="centerY" id="ML7-fQ-FML"/>
+                                    <constraint firstItem="KPk-Ez-KZE" firstAttribute="centerX" secondItem="pkg-MH-X4y" secondAttribute="centerX" id="UcG-mg-F3V"/>
+                                    <constraint firstAttribute="height" constant="90" id="m6j-yI-ilV"/>
+                                    <constraint firstItem="shq-GY-KPD" firstAttribute="centerY" secondItem="KPk-Ez-KZE" secondAttribute="centerY" id="waf-Ey-ebl"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" red="0.078431372549019607" green="0.090196078431372548" blue="0.082352941176470587" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="kDW-Gc-dwz" firstAttribute="trailing" secondItem="pkg-MH-X4y" secondAttribute="trailing" id="1Eb-hU-DUY"/>
+                            <constraint firstItem="pkg-MH-X4y" firstAttribute="top" secondItem="kDW-Gc-dwz" secondAttribute="top" id="Vf7-k2-N2j"/>
+                            <constraint firstItem="pkg-MH-X4y" firstAttribute="leading" secondItem="kDW-Gc-dwz" secondAttribute="leading" id="e8T-Gs-NRM"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="kDW-Gc-dwz"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Options" id="3FO-uY-faw"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="r6A-rL-Fvn" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="728.79999999999995" y="115.59220389805098"/>
         </scene>
     </scenes>
     <resources>
+        <image name="backArrow" width="100" height="100"/>
         <image name="menuBar" width="80" height="80"/>
     </resources>
 </document>
