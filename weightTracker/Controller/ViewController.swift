@@ -9,13 +9,16 @@
 import UIKit
 import ScrollableGraphView
 
-class ViewController: UIViewController , ScrollableGraphViewDataSource {
+class ViewController: UIViewController , ScrollableGraphViewDataSource , UIViewControllerTransitioningDelegate {
 
     @IBOutlet weak var graphView: ScrollableGraphView!
     
     let linePlotData = [68.5,68.4,69,68,68,68.5,67.5,67.4,67.1,67.9]
     var maxScale = 70
     var minScale = 66
+    
+    @IBOutlet weak var menuButton: UIButton!
+    let transition = CircularTransition()
     
     enum CardState {
         case expanded
@@ -218,6 +221,31 @@ class ViewController: UIViewController , ScrollableGraphViewDataSource {
         graphView.addReferenceLines(referenceLines: referenceLines)
         graphView.addPlot(plot: linePlot)
         graphView.addPlot(plot: dotPlot)
+        
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let secondVC = segue.destination as! optionsViewController
+        secondVC.transitioningDelegate = self
+        secondVC.modalPresentationStyle = .custom
+    }
+    
+    func animationController(forPresented presented: UIViewController, presenting: UIViewController, source: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+        transition.transitionMode = .present
+        var newStartingPoint = CGPoint(x: menuButton.frame.midX + 7.0  , y: menuButton.frame.midY + 36.0)
+        transition.startingPoint = newStartingPoint
+        transition.circleColor = menuButton.backgroundColor!
+        print(menuButton.frame.maxX , menuButton.frame.maxY)
+        return transition
+    }
+    
+    func animationController(forDismissed dismissed: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+        transition.transitionMode = .dismiss
+        var newStartingPoint = CGPoint(x: menuButton.frame.midX + 7.0  , y: menuButton.frame.midY + 36.0)
+        transition.startingPoint = newStartingPoint
+        transition.circleColor = menuButton.backgroundColor!
+        
+        return transition
         
     }
     
