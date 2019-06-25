@@ -135,11 +135,37 @@ class CardViewController: UIViewController  , UIPickerViewDelegate , UIPickerVie
     }
     
     func checkRedundancy(){
-        // Check for last update date
+        if(getLastUpdateDate() != nil){
+            if(formatDate(date: Date()) == formatDate(date: getLastUpdateDate()!)) {
+                print("Record Existed for today")
+                var objectToRemove = realm.objects(Record.self).sorted(byKeyPath: "date", ascending: false).first
+                if(objectToRemove != nil){
+                    try! realm.write {
+                        realm.delete(objectToRemove!)
+                    }
+                }
+                
+                
+            }else {
+                print("Record Not existed for today")
+            }
+        }else {
+            print("Record Not Existed")
+        }
         
-        // If last update date is today
-            //Delete today's record
-        // else proceed normally
+    }
+    
+    func formatDate(date : Date) -> String {
+        let formatter = DateFormatter()
+        formatter.dateFormat = "MMMM dd yyyy"
+        let result = formatter.string(from: date)
+        return result
+    }
+    
+    func getLastUpdateDate() -> Date? {
+        var ldate : Date?
+        ldate = (realm.objects(Record.self).sorted(byKeyPath: "date", ascending: false).first?.date ?? nil)
+        return ldate
     }
     
     @IBAction func doneButton(_ sender: Any) {
@@ -150,7 +176,7 @@ class CardViewController: UIViewController  , UIPickerViewDelegate , UIPickerVie
         doneButtonOut.layer.borderWidth = 0.00
         
         print("Saving Records")
-        
+        checkRedundancy()
         let newRecord = Record()
         newRecord.date = Date()
         newRecord.weight = Double(finalWeight)
@@ -158,6 +184,7 @@ class CardViewController: UIViewController  , UIPickerViewDelegate , UIPickerVie
         try! realm.write {
             realm.add(newRecord)
         }
+        
         
     }
     
