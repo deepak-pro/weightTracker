@@ -12,7 +12,7 @@ import StoreKit
 
 class optionsViewController: UIViewController , UITableViewDelegate , UITableViewDataSource {
     
-    var options : [String] = ["Customize Records" ,"Rate this app" ,  "Delete All Records"]
+    var options : [String] = ["History" ,"Rate this app" ,  "Delete All Records"]
     
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

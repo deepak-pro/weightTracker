@@ -489,6 +489,10 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <connections>
+                                            <outlet property="dateLabel" destination="6TN-Bd-YzV" id="YBh-8b-HRk"/>
+                                            <outlet property="weightLabel" destination="4uD-dF-bcs" id="Wah-af-CHJ"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                                 <connections>

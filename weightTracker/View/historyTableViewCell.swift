@@ -11,7 +11,9 @@ import UIKit
 class historyTableViewCell: UITableViewCell {
     
     
-
+    @IBOutlet weak var dateLabel: UILabel!
+    @IBOutlet weak var weightLabel: UILabel!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         
