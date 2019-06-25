@@ -8,13 +8,17 @@
 
 import UIKit
 import AudioToolbox
+import RealmSwift
 
 class CardViewController: UIViewController  , UIPickerViewDelegate , UIPickerViewDataSource{
     
     @IBOutlet weak var handleLabel: UILabel!
+    
+    let realm = try! Realm()
+    
     var weightArray = [Int]()
     var pointArray = [Int]()
-    var finalWeight = Float()
+    var finalWeight = Double()
     var finalWeightKGComponent = Int()
     var finalWeightMGComponent = Int()
     var previousWeight = 86.5
@@ -69,6 +73,7 @@ class CardViewController: UIViewController  , UIPickerViewDelegate , UIPickerVie
         doneButtonOut.layer.borderWidth = 2.0
         doneButtonOut.backgroundColor = UIColor.clear
         doneButtonOut.setTitle("Save", for: .normal)
+        finalWeight = Double(finalWeightKGComponent) + (Double(finalWeightMGComponent) * 0.1)
     }
     
     func extractComponentFromPreviousWeight(){
@@ -109,6 +114,9 @@ class CardViewController: UIViewController  , UIPickerViewDelegate , UIPickerVie
         doneButtonOut.layer.borderColor = UIColor.white.cgColor
         doneButtonOut.layer.borderWidth = 2.0
         doneButtonOut.tintColor = UIColor.white
+        
+        print(Realm.Configuration.defaultConfiguration.fileURL)
+        
     }
     
     @IBAction func doneButton(_ sender: Any) {
@@ -117,6 +125,17 @@ class CardViewController: UIViewController  , UIPickerViewDelegate , UIPickerVie
         doneButtonOut.backgroundColor = blueShade
         doneButtonOut.setTitle("Saved", for: .normal)
         doneButtonOut.layer.borderWidth = 0.00
+        
+        print("Saving Records")
+        
+        let newRecord = Record()
+        newRecord.date = Date()
+        newRecord.weight = Double(finalWeight)
+        newRecord.id = 1
+        
+        try! realm.write {
+            realm.add(newRecord)
+        }
         
     }
     
