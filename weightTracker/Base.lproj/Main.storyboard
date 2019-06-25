@@ -399,6 +399,7 @@
                     <connections>
                         <outlet property="dismissButton" destination="ml9-IZ-qtG" id="fQU-D8-R9r"/>
                         <segue destination="uU8-by-Wfq" kind="show" identifier="showRecords" id="Kv3-VJ-2sD"/>
+                        <segue destination="AKd-4h-cll" kind="show" identifier="selectDates" id="o0d-5x-EY9"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="r6A-rL-Fvn" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -532,6 +533,91 @@
                 </swipeGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="1637.68115942029" y="114.94565217391305"/>
+        </scene>
+        <!--Select Dates View Controller-->
+        <scene sceneID="K2i-BU-fhP">
+            <objects>
+                <viewController id="AKd-4h-cll" customClass="selectDatesViewController" customModule="weightTracker" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="EvQ-WP-IaK">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="am6-PS-J3i">
+                                <rect key="frame" x="6" y="20" width="402" height="100"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fFA-MQ-5Lp">
+                                        <rect key="frame" x="15" y="30" width="40" height="40"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="40" id="Pb1-5V-TTT"/>
+                                            <constraint firstAttribute="width" constant="40" id="ToZ-mK-sed"/>
+                                        </constraints>
+                                        <state key="normal" image="backArrow"/>
+                                        <connections>
+                                            <action selector="backButtonTapped:" destination="AKd-4h-cll" eventType="touchUpInside" id="jWL-DJ-Iyd"/>
+                                        </connections>
+                                    </button>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Select Dates" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ByS-qm-B6l">
+                                        <rect key="frame" x="104.66666666666669" y="21" width="193" height="58"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="58" id="Tjh-gA-NOf"/>
+                                            <constraint firstAttribute="width" constant="193" id="zve-ZV-hgf"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="AvenirNextCondensed-Regular" family="Avenir Next Condensed" pointSize="31"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="100" id="Aa1-lV-4fd"/>
+                                    <constraint firstItem="ByS-qm-B6l" firstAttribute="centerY" secondItem="am6-PS-J3i" secondAttribute="centerY" id="ErW-lF-9Fr"/>
+                                    <constraint firstItem="fFA-MQ-5Lp" firstAttribute="centerY" secondItem="am6-PS-J3i" secondAttribute="centerY" id="Xzw-Nb-jbT"/>
+                                    <constraint firstItem="fFA-MQ-5Lp" firstAttribute="leading" secondItem="am6-PS-J3i" secondAttribute="leading" constant="15" id="YE8-Ua-oyk"/>
+                                    <constraint firstItem="ByS-qm-B6l" firstAttribute="centerX" secondItem="am6-PS-J3i" secondAttribute="centerX" id="kan-K3-Rgz"/>
+                                </constraints>
+                            </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="j93-4O-rz9">
+                                <rect key="frame" x="117" y="666" width="180" height="50"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="180" id="13C-ok-5YM"/>
+                                    <constraint firstAttribute="height" constant="50" id="zlf-pK-Ei4"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="AvenirNextCondensed-DemiBold" family="Avenir Next Condensed" pointSize="24"/>
+                                <state key="normal" title="Show History">
+                                    <color key="titleColor" red="0.18131926655769348" green="0.52721375226974487" blue="0.80703932046890259" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="25"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="clipToBounds" value="YES"/>
+                                </userDefinedRuntimeAttributes>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" red="0.18131926655769348" green="0.52721375226974487" blue="0.80703932046890259" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <gestureRecognizers/>
+                        <constraints>
+                            <constraint firstItem="j93-4O-rz9" firstAttribute="centerX" secondItem="EvQ-WP-IaK" secondAttribute="centerX" id="5g2-5V-eZh"/>
+                            <constraint firstItem="am6-PS-J3i" firstAttribute="leading" secondItem="5UF-kz-UMR" secondAttribute="leading" constant="6" id="BoI-ln-lGZ"/>
+                            <constraint firstItem="5UF-kz-UMR" firstAttribute="trailing" secondItem="am6-PS-J3i" secondAttribute="trailing" constant="6" id="JeN-Nf-T70"/>
+                            <constraint firstItem="5UF-kz-UMR" firstAttribute="bottom" secondItem="j93-4O-rz9" secondAttribute="bottom" constant="20" id="Uus-eZ-3Bp"/>
+                            <constraint firstItem="am6-PS-J3i" firstAttribute="top" secondItem="5UF-kz-UMR" secondAttribute="top" id="voS-up-GtI"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="5UF-kz-UMR"/>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="fJb-7s-ahE" appends="YES" id="yMZ-p1-903"/>
+                        </connections>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="07P-2S-Z2m" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <swipeGestureRecognizer direction="right" id="fJb-7s-ahE">
+                    <connections>
+                        <action selector="swipeRight:" destination="AKd-4h-cll" id="coz-L0-CKN"/>
+                    </connections>
+                </swipeGestureRecognizer>
+            </objects>
+            <point key="canvasLocation" x="1637.68115942029" y="813.58695652173924"/>
         </scene>
     </scenes>
     <resources>
