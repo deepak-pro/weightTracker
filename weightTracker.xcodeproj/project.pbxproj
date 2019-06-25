@@ -9,6 +9,14 @@
 /* Begin PBXBuildFile section */
 		002A3C2822C20939007CF73D /* selectDatesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 002A3C2722C20939007CF73D /* selectDatesViewController.swift */; };
 		002EFD7A22BCF50800AA7EAB /* CircularTransition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 002EFD7922BCF50800AA7EAB /* CircularTransition.swift */; };
+		00518EBC22C26E3E002642A9 /* AnimationClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00518EB322C26E3D002642A9 /* AnimationClass.swift */; };
+		00518EBD22C26E3E002642A9 /* CalendarLanguageConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00518EB422C26E3E002642A9 /* CalendarLanguageConstants.swift */; };
+		00518EBE22C26E3E002642A9 /* CellView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 00518EB522C26E3E002642A9 /* CellView.xib */; };
+		00518EBF22C26E3E002642A9 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00518EB622C26E3E002642A9 /* Extensions.swift */; };
+		00518EC022C26E3E002642A9 /* CalendarPopUp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00518EB722C26E3E002642A9 /* CalendarPopUp.swift */; };
+		00518EC122C26E3E002642A9 /* PopupContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00518EB822C26E3E002642A9 /* PopupContainer.swift */; };
+		00518EC222C26E3E002642A9 /* CalendarPopUp.xib in Resources */ = {isa = PBXBuildFile; fileRef = 00518EB922C26E3E002642A9 /* CalendarPopUp.xib */; };
+		00518EC322C26E3E002642A9 /* CellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00518EBA22C26E3E002642A9 /* CellView.swift */; };
 		005E2B8C22BA99FC0072F513 /* CardViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 005E2B8B22BA99FB0072F513 /* CardViewController.xib */; };
 		005E2B8E22BA9A100072F513 /* CardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 005E2B8D22BA9A100072F513 /* CardViewController.swift */; };
 		006AF24A22C1ADDF00E11419 /* Record.swift in Sources */ = {isa = PBXBuildFile; fileRef = 006AF24922C1ADDF00E11419 /* Record.swift */; };
@@ -27,6 +35,15 @@
 /* Begin PBXFileReference section */
 		002A3C2722C20939007CF73D /* selectDatesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = selectDatesViewController.swift; sourceTree = "<group>"; };
 		002EFD7922BCF50800AA7EAB /* CircularTransition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircularTransition.swift; sourceTree = "<group>"; };
+		00518EB322C26E3D002642A9 /* AnimationClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnimationClass.swift; sourceTree = "<group>"; };
+		00518EB422C26E3E002642A9 /* CalendarLanguageConstants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalendarLanguageConstants.swift; sourceTree = "<group>"; };
+		00518EB522C26E3E002642A9 /* CellView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CellView.xib; sourceTree = "<group>"; };
+		00518EB622C26E3E002642A9 /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		00518EB722C26E3E002642A9 /* CalendarPopUp.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalendarPopUp.swift; sourceTree = "<group>"; };
+		00518EB822C26E3E002642A9 /* PopupContainer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PopupContainer.swift; sourceTree = "<group>"; };
+		00518EB922C26E3E002642A9 /* CalendarPopUp.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CalendarPopUp.xib; sourceTree = "<group>"; };
+		00518EBA22C26E3E002642A9 /* CellView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CellView.swift; sourceTree = "<group>"; };
+		00518EBB22C26E3E002642A9 /* calenderViewTest-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "calenderViewTest-Bridging-Header.h"; sourceTree = "<group>"; };
 		005E2B8B22BA99FB0072F513 /* CardViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CardViewController.xib; sourceTree = "<group>"; };
 		005E2B8D22BA9A100072F513 /* CardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardViewController.swift; sourceTree = "<group>"; };
 		006AF24922C1ADDF00E11419 /* Record.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Record.swift; sourceTree = "<group>"; };
@@ -58,6 +75,22 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		00518EB222C26E13002642A9 /* PopupCalender */ = {
+			isa = PBXGroup;
+			children = (
+				00518EB322C26E3D002642A9 /* AnimationClass.swift */,
+				00518EB422C26E3E002642A9 /* CalendarLanguageConstants.swift */,
+				00518EB722C26E3E002642A9 /* CalendarPopUp.swift */,
+				00518EB922C26E3E002642A9 /* CalendarPopUp.xib */,
+				00518EBB22C26E3E002642A9 /* calenderViewTest-Bridging-Header.h */,
+				00518EBA22C26E3E002642A9 /* CellView.swift */,
+				00518EB522C26E3E002642A9 /* CellView.xib */,
+				00518EB622C26E3E002642A9 /* Extensions.swift */,
+				00518EB822C26E3E002642A9 /* PopupContainer.swift */,
+			);
+			path = PopupCalender;
+			sourceTree = "<group>";
+		};
 		006AF24822C1ADC200E11419 /* Modal */ = {
 			isa = PBXGroup;
 			children = (
@@ -87,6 +120,7 @@
 		006B19DC22B7E837005FB3F6 /* weightTracker */ = {
 			isa = PBXGroup;
 			children = (
+				00518EB222C26E13002642A9 /* PopupCalender */,
 				006AF24822C1ADC200E11419 /* Modal */,
 				00E1DFF622BC9A4B001E835D /* View */,
 				00E1DFF522BC9A35001E835D /* Controller */,
@@ -199,6 +233,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				00518EC222C26E3E002642A9 /* CalendarPopUp.xib in Resources */,
+				00518EBE22C26E3E002642A9 /* CellView.xib in Resources */,
 				005E2B8C22BA99FC0072F513 /* CardViewController.xib in Resources */,
 				006B19E822B7E838005FB3F6 /* LaunchScreen.storyboard in Resources */,
 				006B19E522B7E838005FB3F6 /* Assets.xcassets in Resources */,
@@ -240,6 +276,7 @@
 			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-weightTracker/Pods-weightTracker-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/JTAppleCalendar/JTAppleCalendar.framework",
 				"${BUILT_PRODUCTS_DIR}/Realm/Realm.framework",
 				"${BUILT_PRODUCTS_DIR}/RealmSwift/RealmSwift.framework",
 				"${BUILT_PRODUCTS_DIR}/ScrollableGraphView/ScrollableGraphView.framework",
@@ -248,6 +285,7 @@
 			outputFileListPaths = (
 			);
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/JTAppleCalendar.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Realm.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RealmSwift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ScrollableGraphView.framework",
@@ -266,13 +304,19 @@
 			files = (
 				002EFD7A22BCF50800AA7EAB /* CircularTransition.swift in Sources */,
 				006B19E022B7E837005FB3F6 /* ViewController.swift in Sources */,
+				00518EBC22C26E3E002642A9 /* AnimationClass.swift in Sources */,
 				006AF24A22C1ADDF00E11419 /* Record.swift in Sources */,
+				00518EC322C26E3E002642A9 /* CellView.swift in Sources */,
 				00E2094622C13BF5003F827C /* historyTableViewCell.swift in Sources */,
 				00E1DFF822BC9A76001E835D /* optionsViewController.swift in Sources */,
 				00E2094422C13BB1003F827C /* historyViewController.swift in Sources */,
 				002A3C2822C20939007CF73D /* selectDatesViewController.swift in Sources */,
+				00518EC022C26E3E002642A9 /* CalendarPopUp.swift in Sources */,
+				00518EBF22C26E3E002642A9 /* Extensions.swift in Sources */,
 				006B19DE22B7E837005FB3F6 /* AppDelegate.swift in Sources */,
+				00518EBD22C26E3E002642A9 /* CalendarLanguageConstants.swift in Sources */,
 				00DAF10622BD0B91005798C7 /* optionsTableViewCell.swift in Sources */,
+				00518EC122C26E3E002642A9 /* PopupContainer.swift in Sources */,
 				005E2B8E22BA9A100072F513 /* CardViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
