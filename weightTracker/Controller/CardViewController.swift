@@ -24,6 +24,8 @@ class CardViewController: UIViewController  , UIPickerViewDelegate , UIPickerVie
     var previousWeight = 86.5
     var selectComponent = 0
     var selectWeight = 0
+    var newCaseID = Int()
+    var id : Int = 0
     @IBOutlet weak var doneButtonOut: UIButton!
     
     @IBOutlet weak var doneButton: UIButton!
@@ -83,13 +85,26 @@ class CardViewController: UIViewController  , UIPickerViewDelegate , UIPickerVie
         finalWeightKGComponent = Int(previousWeight/1)
         print(finalWeightKGComponent)
         weightLabel.text = "\(finalWeightKGComponent).\(finalWeightMGComponent) kg"
+        finalWeight = Double(finalWeightKGComponent) + (Double(finalWeightMGComponent) * 0.1)
     }
     
     func setPreviousWeight(){
         weightPickerView.selectRow(finalWeightKGComponent - 40, inComponent: 0, animated: true)
         weightPickerView.selectRow(finalWeightMGComponent, inComponent: 1, animated: true)
     }
-
+    
+    func getCaseID() -> Int {
+        newCaseID = 1
+        if (UserDefaults.standard.object(forKey: "caseID") as? Int == nil ){
+            UserDefaults.standard.set(1, forKey: "caseID")
+            print("Case Id variable created.")
+        }else{
+            id = UserDefaults.standard.object(forKey: "caseID") as! Int
+            newCaseID = id + 1
+            UserDefaults.standard.set(newCaseID , forKey: "caseID")
+        }
+        return (newCaseID)
+    }
     
     @IBOutlet weak var weightLabel: UILabel!
     @IBOutlet weak var handleArea: UIView!
@@ -119,6 +134,14 @@ class CardViewController: UIViewController  , UIPickerViewDelegate , UIPickerVie
         
     }
     
+    func checkRedundancy(){
+        // Check for last update date
+        
+        // If last update date is today
+            //Delete today's record
+        // else proceed normally
+    }
+    
     @IBAction func doneButton(_ sender: Any) {
         let blueShade = UIColor(red: 0/255, green: 134/255, blue: 206/255, alpha: 1.0)
         
@@ -131,8 +154,7 @@ class CardViewController: UIViewController  , UIPickerViewDelegate , UIPickerVie
         let newRecord = Record()
         newRecord.date = Date()
         newRecord.weight = Double(finalWeight)
-        newRecord.id = 1
-        
+        newRecord.id = getCaseID()
         try! realm.write {
             realm.add(newRecord)
         }
