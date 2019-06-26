@@ -51,6 +51,9 @@ class selectDatesViewController: UIViewController , FSCalendarDelegate , FSCalen
         calender.heightAnchor.constraint(equalToConstant: 400).isActive = true
         calender.centerYAnchor.constraint(equalTo: self.view.centerYAnchor).isActive = true
         
+        // Can animate popup
+        
+        
     }
     
     func setDate() {
