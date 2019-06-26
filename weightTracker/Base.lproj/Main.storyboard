@@ -276,6 +276,7 @@
                     </view>
                     <connections>
                         <outlet property="graphView" destination="ORQ-uH-RWk" id="zcy-q3-PUx"/>
+                        <outlet property="latestWeightLabel" destination="w6S-Py-TZn" id="bOx-dD-2ft"/>
                         <outlet property="menuButton" destination="m7E-fJ-Tvw" id="Yyl-cd-W3H"/>
                         <outlet property="scaleSegment" destination="SQG-fN-WfC" id="hPA-Nm-qRv"/>
                         <segue destination="ReN-Li-Mrg" kind="show" identifier="showOptions" id="hzW-NP-eth"/>

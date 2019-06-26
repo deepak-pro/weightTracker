@@ -157,7 +157,7 @@ class CardViewController: UIViewController  , UIPickerViewDelegate , UIPickerVie
     
     func formatDate(date : Date) -> String {
         let formatter = DateFormatter()
-        formatter.dateFormat = "MMMM dd yyyy"
+        formatter.dateFormat = "MMMM dd, yyyy"
         let result = formatter.string(from: date)
         return result
     }
@@ -183,6 +183,14 @@ class CardViewController: UIViewController  , UIPickerViewDelegate , UIPickerVie
         newRecord.id = getCaseID()
         try! realm.write {
             realm.add(newRecord)
+        }
+        UserDefaults.standard.set(finalWeight, forKey: "latestWeight")
+        UserDefaults.standard.set(Date(), forKey: "latestDate")
+        
+        if let userDefaults = UserDefaults(suiteName: "group.Deepak.weightTracker"){
+            userDefaults.set(String("\(finalWeight) kg"), forKey: "finalWeight")
+            userDefaults.set(String(formatDate(date: Date())), forKey: "finalDate")
+            userDefaults.synchronize()
         }
         
         

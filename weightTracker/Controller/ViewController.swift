@@ -15,8 +15,11 @@ class ViewController: UIViewController , ScrollableGraphViewDataSource , UIViewC
     @IBOutlet weak var graphView: ScrollableGraphView!
     
     var linePlotData = [68.5,68.4,69,68,68,68.5,67.5,67.4,67.1,67.9]
-    var maxScale = 70
-    var minScale = 66
+    var maxScale : Double = 70
+    var minScale : Double = 66
+    
+    @IBOutlet weak var latestWeightLabel: UILabel!
+    
     
     @IBOutlet weak var scaleSegment: UISegmentedControl!
     @IBOutlet weak var menuButton: UIButton!
@@ -58,13 +61,26 @@ class ViewController: UIViewController , ScrollableGraphViewDataSource , UIViewC
         return linePlotData.count
     }
     
+    func updatelatestWeightlabel(){
+        if let latestWeight = UserDefaults.standard.object(forKey: "latestWeight") as? Double{
+            latestWeightLabel.text = String(latestWeight) + " kg"
+        }else {
+            latestWeightLabel.text = "--"
+        }
+    }
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        graphView.dataSource = self as! ScrollableGraphViewDataSource
+        updatelatestWeightlabel()
+        maxScale = linePlotData.max() ?? 150 + Double(5)
+        minScale = linePlotData.min() ?? 50 - Double(5)
+        
+        graphView.dataSource = self as ScrollableGraphViewDataSource
         setUpGraphView()
         setUpCard()
         self.cardViewController.view.layer.cornerRadius = 0
+        
     }
     
     func setUpCard(){
@@ -140,6 +156,7 @@ class ViewController: UIViewController , ScrollableGraphViewDataSource , UIViewC
                     self.cardViewController.view.layer.cornerRadius = 12
                 case .collapsed:
                     self.cardViewController.view.layer.cornerRadius = 0
+                    self.updatelatestWeightlabel()
                 }
             }
             

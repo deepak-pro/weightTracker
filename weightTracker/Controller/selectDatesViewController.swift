@@ -20,6 +20,8 @@ class selectDatesViewController: UIViewController , FSCalendarDelegate , FSCalen
     var endDate : Date?
     var editingDate : String?
     
+    
+    
     fileprivate weak var calender : FSCalendar!
     override func viewDidLoad() {
         super.viewDidLoad()
