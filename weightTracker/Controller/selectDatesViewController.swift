@@ -8,51 +8,81 @@
 
 import UIKit
 import AudioToolbox
+import FSCalendar
 
-class selectDatesViewController: UIViewController {
+class selectDatesViewController: UIViewController , FSCalendarDelegate , FSCalendarDataSource {
     
     @IBOutlet weak var startDateButton: UIButton!
     @IBOutlet weak var endDateButton: UIButton!
     
-    var selectingFor = ""
+    var selectedDate : Date?
     var startDate : Date?
     var endDate : Date?
-
-    var aPopupContainer: PopupContainer?
-    var testCalendar = Calendar(identifier: Calendar.Identifier.iso8601)
+    var editingDate : String?
     
-    var currentDate: Date! = Date() {
-        didSet {
-            setDate()
-        }
-    }
-
+    fileprivate weak var calender : FSCalendar!
     override func viewDidLoad() {
         super.viewDidLoad()
-        currentDate = Date()
+        
+    }
+    
+    func setUpCalender(){
+        let calender = FSCalendar(frame:CGRect(x: 0, y: 100, width: self.view.frame.width, height: 400))
+        calender.dataSource = self
+        calender.delegate = self
+        calender.backgroundColor = UIColor.white
+        calender.layer.cornerRadius = CGFloat(20.0)
+        
+        calender.layer.shadowColor = UIColor.gray.cgColor
+        calender.layer.shadowOffset = CGSize(width: 0.0, height: 0.0)
+        calender.layer.shadowRadius = 12.0
+        calender.layer.shadowOpacity = 0.7
+        
+        calender.appearance.headerTitleColor = UIColor(displayP3Red: 0/255, green: 138/255, blue: 202/255, alpha: 1.0)
+        calender.appearance.weekdayTextColor = UIColor(displayP3Red: 0/255, green: 138/255, blue: 202/255, alpha: 1.0)
+        calender.appearance.headerTitleFont = startDateButton.titleLabel?.font
+        
+        view.addSubview(calender)
+        self.calender = calender
+        
+        calender.translatesAutoresizingMaskIntoConstraints = false
+        calender.leadingAnchor.constraint(equalTo: self.view.leadingAnchor, constant: 16).isActive = true
+        calender.trailingAnchor.constraint(equalTo: self.view.trailingAnchor, constant: -16).isActive = true
+        calender.heightAnchor.constraint(equalToConstant: 400).isActive = true
+        calender.centerYAnchor.constraint(equalTo: self.view.centerYAnchor).isActive = true
+        
     }
     
     func setDate() {
-        if selectingFor == "start" {
-            startDate = currentDate
-            startDateButton.setTitle(formatDate(date: currentDate), for: .normal)
-        }else if selectingFor == "end" {
-            endDate = currentDate
-            endDateButton.setTitle(formatDate(date: currentDate), for: .normal)
-        }else {
-            
-        }
+        
     }
     
     @IBAction func startDateAction(_ sender: Any) {
-        selectingFor = "start"
-        selectDate()
+        editingDate = "start"
+        setUpCalender()
     }
     
     
     @IBAction func endDateAction(_ sender: Any) {
-        selectingFor = "end"
-        selectDate()
+        editingDate = "end"
+        setUpCalender()
+    }
+    
+    func calendar(_ calendar: FSCalendar, didSelect date: Date, at monthPosition: FSCalendarMonthPosition) {
+        if(editingDate=="start"){
+            startDate = date
+            startDateButton.setTitle(formatDate(date: date), for: .normal)
+        }else if editingDate == "end" {
+            endDate = date
+            endDateButton.setTitle(formatDate(date: date), for: .normal)
+        }
+        
+        calendar.removeFromSuperview()
+        
+    }
+    
+    func maximumDate(for calendar: FSCalendar) -> Date {
+        return Date()
     }
     
     
@@ -73,48 +103,36 @@ class selectDatesViewController: UIViewController {
     }
     
     func selectDate() {
-        AudioServicesPlaySystemSound(1519)
-        let xibView = Bundle.main.loadNibNamed("CalendarPopUp", owner: nil, options: nil)?[0] as! CalendarPopUp
-        xibView.calendarDelegate = self
-        xibView.selected = currentDate
-        xibView.startDate = Calendar.current.date(byAdding: .month, value: -12, to: Date())!
-        xibView.endDate = Calendar.current.date(byAdding: .year, value: 2, to: Date())!
-
-        print(Calendar.current.date(byAdding: .month, value: -24, to: currentDate)!)
-        print(Calendar.current.date(byAdding: .year, value: 2, to: currentDate)!)
         
-        PopupContainer.generatePopupWithView(xibView).show()
     }
     
     @IBAction func showHistoryTapped(_ sender: Any) {
-        if startDate != nil && endDate != nil {
+        
+        
+        if(startDate != nil && endDate != nil){
             
-            if(startDate! > endDate!){
-                let alert = UIAlertController(title: "Please select valid range", message: "", preferredStyle: .alert)
-                alert.addAction(UIAlertAction(title: "ok", style: .default, handler: nil))
-                present(alert,animated:true,completion: nil)
-                return
-            }
-            
-            print("Start date is \(startDate)")
-            print("End date is \(endDate)")
         }else {
-            let alert = UIAlertController(title: "Please select valid range", message: "", preferredStyle: .alert)
+            let alert = UIAlertController(title: "Please select a valid range", message: "", preferredStyle: .alert)
             alert.addAction(UIAlertAction(title: "ok", style: .default, handler: nil))
-            present(alert,animated:true,completion: nil)
+            present(alert,animated: true ,completion: nil)
+            return
         }
+        
+        if(startDate! > endDate!) {
+            let alert = UIAlertController(title: "Please select a valid range", message: "", preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "ok", style: .default, handler: nil))
+            present(alert,animated: true ,completion: nil)
+            return
+        }
+        
+        print("Start date is \(startDate!)")
+        print("End date is \(endDate!)")
+        
+        
     }
-    
     
     override var preferredStatusBarStyle: UIStatusBarStyle {
         return .lightContent
     }
-    
-    
-}
-
-extension selectDatesViewController: CalendarPopUpDelegate {
-    func dateChaged(date: Date) {
-        currentDate = date
-    }
+  
 }

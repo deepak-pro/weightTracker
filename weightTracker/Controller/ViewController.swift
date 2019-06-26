@@ -193,6 +193,10 @@ class ViewController: UIViewController , ScrollableGraphViewDataSource , UIViewC
     func setUpGraphView(){
         graphView.backgroundFillColor = UIColor(red: 27/255, green: 27/255, blue: 27/255, alpha: 1.0)
         graphView.tintColor = UIColor.white
+        
+        graphView.rangeMax = Double(maxScale)
+        graphView.rangeMin = Double(minScale)
+        
         let linePlot = LinePlot(identifier: "line")
         linePlot.lineWidth = CGFloat(5.0)
         linePlot.lineColor = UIColor.white
@@ -218,8 +222,6 @@ class ViewController: UIViewController , ScrollableGraphViewDataSource , UIViewC
         
         
         graphView.shouldAdaptRange = false
-        graphView.rangeMax = Double(maxScale)
-        graphView.rangeMin = Double(minScale)
         graphView.addReferenceLines(referenceLines: referenceLines)
         graphView.addPlot(plot: linePlot)
         graphView.addPlot(plot: dotPlot)
