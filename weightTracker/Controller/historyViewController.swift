@@ -20,6 +20,7 @@ class historyViewController: UIViewController  , UITableViewDelegate , UITableVi
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
         let cell = tableView.dequeueReusableCell(withIdentifier: "historyCell") as! historyTableViewCell
         cell.dateLabel.text = formatDate(date: records[indexPath.row].date!)
         cell.weightLabel.text = String(records[indexPath.row].weight) + " kg"

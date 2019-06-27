@@ -9,6 +9,7 @@
 import UIKit
 import ScrollableGraphView
 import AudioToolbox
+import RealmSwift
 
 class ViewController: UIViewController , ScrollableGraphViewDataSource , UIViewControllerTransitioningDelegate {
 
@@ -18,11 +19,17 @@ class ViewController: UIViewController , ScrollableGraphViewDataSource , UIViewC
     var maxScale : Double = 70
     var minScale : Double = 66
     
+    let realm = try! Realm()
+    
     @IBOutlet weak var latestWeightLabel: UILabel!
     @IBOutlet weak var latestDateLabel: UILabel!
     @IBOutlet weak var weekWeightLabel: UILabel!
     @IBOutlet weak var monthWeightLabel: UILabel!
     @IBOutlet weak var yearWeightLabel: UILabel!
+    
+    @IBOutlet weak var weekArrow: UIImageView!
+    @IBOutlet weak var monthArrow: UIImageView!
+    @IBOutlet weak var yearArrow: UIImageView!
     
     
     @IBOutlet weak var scaleSegment: UISegmentedControl!
@@ -85,6 +92,61 @@ class ViewController: UIViewController , ScrollableGraphViewDataSource , UIViewC
         return result
     }
     
+    func loadAnalytics(){
+        if let latestWeight = UserDefaults.standard.object(forKey: "latestWeight") as? Double{
+            if let latestDate = UserDefaults.standard.object(forKey: "latestDate") as? Date {
+                
+                let lastWeekDate = Calendar.current.date(byAdding: .day, value: -7 , to: latestDate)
+                let lastWeekWeight = realm.objects(Record.self).sorted(byKeyPath: "date", ascending: true).filter("date BETWEEN {%@, %@}", lastWeekDate , latestDate).first?.weight
+                if lastWeekWeight != nil {
+                    print("Last week weight was \(lastWeekWeight) of date\(lastWeekDate)")
+                    let differenceInWeek = latestWeight - lastWeekWeight!
+                    if differenceInWeek < 0 {
+                        weekArrow.image = UIImage(named: "greenDecrease")
+                    }else if differenceInWeek > 0 {
+                        weekArrow.image = UIImage(named: "redIncrease")
+                    }
+                    weekWeightLabel.text = String(Double(round(10 * differenceInWeek)/10)) + " kg"
+                }else {
+                    weekWeightLabel.text = "-----"
+                }
+                
+                let lastMonthDate = Calendar.current.date(byAdding: .month, value: -1, to: latestDate)
+                let lastMonthWeight = realm.objects(Record.self).sorted(byKeyPath: "date", ascending: true).filter("date BETWEEN {%@, %@}", lastMonthDate, latestDate).first?.weight
+                if lastWeekWeight != nil {
+                    print("Last Month date is \(lastMonthDate) and weight is \(lastMonthWeight)")
+                    let differenceInMonth = latestWeight - lastMonthWeight!
+                    if differenceInMonth < 0 {
+                        monthArrow.image = UIImage(named: "greenDecrease")
+                    } else if differenceInMonth > 0 {
+                        monthArrow.image = UIImage(named: "redIncrease")
+                    }
+                    monthWeightLabel.text = String(Double(round(10 * differenceInMonth)/10)) + " kg"
+                }else {
+                    monthWeightLabel.text = "-----"
+                }
+                
+                let lastYearDate = Calendar.current.date(byAdding: .year, value: -1 , to: latestDate)
+                let lastYearWeight = realm.objects(Record.self).sorted(byKeyPath: "date", ascending: true).filter("date BETWEEN {%@, %@}",lastYearDate,latestDate).first?.weight
+                if lastYearWeight != nil {
+                    print("Last year date is \(lastYearDate) and weight is \(lastYearWeight)")
+                    let differenceInYear = latestWeight - lastYearWeight!
+                    if differenceInYear < 0 {
+                        yearArrow.image = UIImage(named: "greenDecrease")
+                    } else if differenceInYear > 0 {
+                        yearArrow.image = UIImage(named: "redIncrease")
+                    }
+                    yearWeightLabel.text = String(Double(round(10 * differenceInYear)/10)) + " kg"
+                }
+                
+                
+                
+            }
+        }else {
+            
+        }
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         updatelatestWeightlabel()
@@ -94,6 +156,7 @@ class ViewController: UIViewController , ScrollableGraphViewDataSource , UIViewC
         graphView.dataSource = self as ScrollableGraphViewDataSource
         setUpGraphView()
         setUpCard()
+        loadAnalytics()
         self.cardViewController.view.layer.cornerRadius = 0
         
     }
