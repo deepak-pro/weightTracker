@@ -116,13 +116,25 @@
                                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="--" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IEo-uY-EDU">
+                                                                <rect key="frame" x="8" y="81" width="164.5" height="25"/>
+                                                                <constraints>
+                                                                    <constraint firstAttribute="height" constant="25" id="9Bw-25-0kW"/>
+                                                                </constraints>
+                                                                <fontDescription key="fontDescription" name="AvenirNextCondensed-Regular" family="Avenir Next Condensed" pointSize="18"/>
+                                                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                <nil key="highlightedColor"/>
+                                                            </label>
                                                         </subviews>
                                                         <color key="backgroundColor" red="0.12549019607843137" green="0.12549019607843137" blue="0.12549019607843137" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         <constraints>
                                                             <constraint firstItem="Lyl-Vg-G6p" firstAttribute="leading" secondItem="BXn-6I-omT" secondAttribute="leading" constant="6" id="2of-Zj-f91"/>
+                                                            <constraint firstItem="IEo-uY-EDU" firstAttribute="leading" secondItem="BXn-6I-omT" secondAttribute="leading" constant="8" id="AqJ-lt-FIA"/>
                                                             <constraint firstItem="w6S-Py-TZn" firstAttribute="centerY" secondItem="BXn-6I-omT" secondAttribute="centerY" id="Hik-mv-sdc"/>
                                                             <constraint firstAttribute="trailing" secondItem="Lyl-Vg-G6p" secondAttribute="trailing" constant="6" id="X8V-QX-fmi"/>
+                                                            <constraint firstAttribute="bottom" secondItem="IEo-uY-EDU" secondAttribute="bottom" constant="8" id="ddo-FD-NGn"/>
                                                             <constraint firstItem="Lyl-Vg-G6p" firstAttribute="top" secondItem="BXn-6I-omT" secondAttribute="top" constant="4" id="fSw-zq-bfG"/>
+                                                            <constraint firstAttribute="trailing" secondItem="IEo-uY-EDU" secondAttribute="trailing" constant="8" id="m1l-Sv-Adc"/>
                                                             <constraint firstItem="w6S-Py-TZn" firstAttribute="centerX" secondItem="BXn-6I-omT" secondAttribute="centerX" id="nNs-NI-ogj"/>
                                                         </constraints>
                                                     </view>
@@ -276,6 +288,7 @@
                     </view>
                     <connections>
                         <outlet property="graphView" destination="ORQ-uH-RWk" id="zcy-q3-PUx"/>
+                        <outlet property="latestDateLabel" destination="IEo-uY-EDU" id="dXF-LJ-HJM"/>
                         <outlet property="latestWeightLabel" destination="w6S-Py-TZn" id="bOx-dD-2ft"/>
                         <outlet property="menuButton" destination="m7E-fJ-Tvw" id="Yyl-cd-W3H"/>
                         <outlet property="scaleSegment" destination="SQG-fN-WfC" id="hPA-Nm-qRv"/>

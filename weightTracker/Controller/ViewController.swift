@@ -19,6 +19,7 @@ class ViewController: UIViewController , ScrollableGraphViewDataSource , UIViewC
     var minScale : Double = 66
     
     @IBOutlet weak var latestWeightLabel: UILabel!
+    @IBOutlet weak var latestDateLabel: UILabel!
     
     
     @IBOutlet weak var scaleSegment: UISegmentedControl!
@@ -67,8 +68,19 @@ class ViewController: UIViewController , ScrollableGraphViewDataSource , UIViewC
         }else {
             latestWeightLabel.text = "--"
         }
+        if let latestDate = UserDefaults.standard.object(forKey: "latestDate") as? Date {
+            latestDateLabel.text = formatDate(date: latestDate)
+        }else {
+            latestDateLabel.text = "--"
+        }
     }
     
+    func formatDate(date : Date) -> String {
+        let formatter = DateFormatter()
+        formatter.dateFormat = "MMMM  dd,  yyyy"
+        let result = formatter.string(from: date)
+        return result
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
