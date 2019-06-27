@@ -20,6 +20,12 @@ class ViewController: UIViewController , ScrollableGraphViewDataSource , UIViewC
     
     @IBOutlet weak var latestWeightLabel: UILabel!
     @IBOutlet weak var latestDateLabel: UILabel!
+    @IBOutlet weak var weekWeightLabel: UILabel!
+    @IBOutlet weak var weekPercentLabel: UILabel!
+    @IBOutlet weak var monthWeightLabel: UILabel!
+    @IBOutlet weak var monthPercentLabel: UILabel!
+    @IBOutlet weak var yearWeightLabel: UILabel!
+    @IBOutlet weak var yearPercentLabel: UILabel!
     
     
     @IBOutlet weak var scaleSegment: UISegmentedControl!
