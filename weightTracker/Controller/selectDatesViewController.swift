@@ -10,14 +10,15 @@ import UIKit
 import AudioToolbox
 import FSCalendar
 
+var startDate : Date?
+var endDate : Date?
+
 class selectDatesViewController: UIViewController , FSCalendarDelegate , FSCalendarDataSource {
     
     @IBOutlet weak var startDateButton: UIButton!
     @IBOutlet weak var endDateButton: UIButton!
     
     var selectedDate : Date?
-    var startDate : Date?
-    var endDate : Date?
     var editingDate : String?
     
     
@@ -130,8 +131,10 @@ class selectDatesViewController: UIViewController , FSCalendarDelegate , FSCalen
             return
         }
         
-        print("Start date is \(startDate!)")
-        print("End date is \(endDate!)")
+        
+        
+        performSegue(withIdentifier: "showDatesHistory", sender: self)
+        
         
         
     }
