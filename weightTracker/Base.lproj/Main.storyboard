@@ -141,16 +141,7 @@
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vMe-91-udq">
                                                         <rect key="frame" x="182.5" y="0.0" width="180.5" height="114"/>
                                                         <subviews>
-                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2%" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gCm-xO-DTi">
-                                                                <rect key="frame" x="2" y="86" width="176.5" height="20"/>
-                                                                <constraints>
-                                                                    <constraint firstAttribute="height" constant="20" id="BRO-Ty-ltX"/>
-                                                                </constraints>
-                                                                <fontDescription key="fontDescription" name="AvenirNextCondensed-Regular" family="Avenir Next Condensed" pointSize="18"/>
-                                                                <color key="textColor" red="0.88235294117647056" green="0.070588235294117646" blue="0.031372549019607843" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                                <nil key="highlightedColor"/>
-                                                            </label>
-                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Weight last week" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aet-HS-8or">
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Changed this week" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aet-HS-8or">
                                                                 <rect key="frame" x="6" y="4" width="168.5" height="25"/>
                                                                 <constraints>
                                                                     <constraint firstAttribute="height" constant="25" id="vgL-EW-v59"/>
@@ -159,8 +150,8 @@
                                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
-                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="68.8 kg" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tth-2K-eJd">
-                                                                <rect key="frame" x="50" y="36.5" width="80.5" height="41"/>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0.4 kg" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tth-2K-eJd">
+                                                                <rect key="frame" x="57" y="36.5" width="66.5" height="41"/>
                                                                 <fontDescription key="fontDescription" name="AvenirNextCondensed-Regular" family="Avenir Next Condensed" pointSize="30"/>
                                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                 <nil key="highlightedColor"/>
@@ -177,13 +168,10 @@
                                                         <constraints>
                                                             <constraint firstAttribute="trailing" secondItem="aet-HS-8or" secondAttribute="trailing" constant="6" id="Cwh-oN-9Ip"/>
                                                             <constraint firstItem="aet-HS-8or" firstAttribute="leading" secondItem="vMe-91-udq" secondAttribute="leading" constant="6" id="Luw-XU-fr9"/>
-                                                            <constraint firstAttribute="bottom" secondItem="gCm-xO-DTi" secondAttribute="bottom" constant="8" id="O4z-pb-4Xw"/>
                                                             <constraint firstAttribute="trailing" secondItem="KbA-2j-d99" secondAttribute="trailing" constant="6" id="Ufr-Hk-YUi"/>
                                                             <constraint firstItem="KbA-2j-d99" firstAttribute="centerY" secondItem="vMe-91-udq" secondAttribute="centerY" id="WnW-86-4id"/>
-                                                            <constraint firstAttribute="trailing" secondItem="gCm-xO-DTi" secondAttribute="trailing" constant="2" id="a0b-Xd-NX6"/>
                                                             <constraint firstItem="tth-2K-eJd" firstAttribute="centerX" secondItem="vMe-91-udq" secondAttribute="centerX" id="dCC-x5-Hkx"/>
                                                             <constraint firstItem="aet-HS-8or" firstAttribute="top" secondItem="vMe-91-udq" secondAttribute="top" constant="4" id="dkM-JJ-ViU"/>
-                                                            <constraint firstItem="gCm-xO-DTi" firstAttribute="leading" secondItem="vMe-91-udq" secondAttribute="leading" constant="2" id="kSv-Bw-SVQ"/>
                                                             <constraint firstItem="tth-2K-eJd" firstAttribute="centerY" secondItem="vMe-91-udq" secondAttribute="centerY" id="lsA-so-RtL"/>
                                                         </constraints>
                                                     </view>
@@ -204,7 +192,7 @@
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dGa-E5-Wfi">
                                                         <rect key="frame" x="0.0" y="0.0" width="180.5" height="113.5"/>
                                                         <subviews>
-                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Weight last month" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZLY-N7-nJ0">
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Changed this month" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZLY-N7-nJ0">
                                                                 <rect key="frame" x="6" y="4" width="168.5" height="25"/>
                                                                 <constraints>
                                                                     <constraint firstAttribute="height" constant="25" id="F4g-oj-B7H"/>
@@ -213,17 +201,8 @@
                                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
-                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="-5%" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aZd-mv-koT">
-                                                                <rect key="frame" x="2" y="85.5" width="176.5" height="20"/>
-                                                                <constraints>
-                                                                    <constraint firstAttribute="height" constant="20" id="EG0-KK-5Cy"/>
-                                                                </constraints>
-                                                                <fontDescription key="fontDescription" name="AvenirNextCondensed-Regular" family="Avenir Next Condensed" pointSize="18"/>
-                                                                <color key="textColor" red="0.0" green="0.81568627450980391" blue="0.42352941176470588" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                                <nil key="highlightedColor"/>
-                                                            </label>
-                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="69.9 kg" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ib9-DK-8jq">
-                                                                <rect key="frame" x="50" y="36" width="80.5" height="41"/>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="-1.3 kg" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ib9-DK-8jq">
+                                                                <rect key="frame" x="53.5" y="36" width="73.5" height="41"/>
                                                                 <fontDescription key="fontDescription" name="AvenirNextCondensed-Regular" family="Avenir Next Condensed" pointSize="30"/>
                                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                 <nil key="highlightedColor"/>
@@ -241,19 +220,16 @@
                                                             <constraint firstAttribute="trailing" secondItem="HrN-u4-V5r" secondAttribute="trailing" constant="6" id="6X6-3r-0u6"/>
                                                             <constraint firstItem="ib9-DK-8jq" firstAttribute="centerX" secondItem="dGa-E5-Wfi" secondAttribute="centerX" id="9nV-gJ-eg9"/>
                                                             <constraint firstItem="ZLY-N7-nJ0" firstAttribute="top" secondItem="dGa-E5-Wfi" secondAttribute="top" constant="4" id="GmK-1r-tvE"/>
-                                                            <constraint firstAttribute="trailing" secondItem="aZd-mv-koT" secondAttribute="trailing" constant="2" id="PkA-ua-a8c"/>
                                                             <constraint firstItem="ZLY-N7-nJ0" firstAttribute="leading" secondItem="dGa-E5-Wfi" secondAttribute="leading" constant="6" id="RVZ-Ta-J5V"/>
-                                                            <constraint firstAttribute="bottom" secondItem="aZd-mv-koT" secondAttribute="bottom" constant="8" id="jbs-hx-kGG"/>
                                                             <constraint firstItem="HrN-u4-V5r" firstAttribute="centerY" secondItem="dGa-E5-Wfi" secondAttribute="centerY" id="rM8-Rq-f6M"/>
                                                             <constraint firstAttribute="trailing" secondItem="ZLY-N7-nJ0" secondAttribute="trailing" constant="6" id="sme-p5-ABi"/>
                                                             <constraint firstItem="ib9-DK-8jq" firstAttribute="centerY" secondItem="dGa-E5-Wfi" secondAttribute="centerY" id="wy4-lM-HG4"/>
-                                                            <constraint firstItem="aZd-mv-koT" firstAttribute="leading" secondItem="dGa-E5-Wfi" secondAttribute="leading" constant="2" id="z3M-L8-cop"/>
                                                         </constraints>
                                                     </view>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Uoj-im-Efm">
                                                         <rect key="frame" x="182.5" y="0.0" width="180.5" height="113.5"/>
                                                         <subviews>
-                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Weight last year" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Oqh-XU-tdF">
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Chnaged this year" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Oqh-XU-tdF">
                                                                 <rect key="frame" x="6" y="4" width="168.5" height="25"/>
                                                                 <constraints>
                                                                     <constraint firstAttribute="height" constant="25" id="MwF-jt-P7h"/>
@@ -262,18 +238,8 @@
                                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
-                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="-10%" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ptc-Bp-ips">
-                                                                <rect key="frame" x="60.5" y="80.5" width="60" height="25"/>
-                                                                <constraints>
-                                                                    <constraint firstAttribute="height" constant="25" id="3QY-0j-uJw"/>
-                                                                    <constraint firstAttribute="width" constant="60" id="ii0-Yh-nuR"/>
-                                                                </constraints>
-                                                                <fontDescription key="fontDescription" name="AvenirNextCondensed-Regular" family="Avenir Next Condensed" pointSize="20"/>
-                                                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                                <nil key="highlightedColor"/>
-                                                            </label>
-                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="72.2 kg" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vhk-YS-1xG">
-                                                                <rect key="frame" x="50" y="36" width="80.5" height="41"/>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="-12.5 kg" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vhk-YS-1xG">
+                                                                <rect key="frame" x="46.5" y="36" width="87.5" height="41"/>
                                                                 <fontDescription key="fontDescription" name="AvenirNextCondensed-Regular" family="Avenir Next Condensed" pointSize="30"/>
                                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                 <nil key="highlightedColor"/>
@@ -291,11 +257,9 @@
                                                             <constraint firstAttribute="trailing" secondItem="Oqh-XU-tdF" secondAttribute="trailing" constant="6" id="1hw-jq-xb9"/>
                                                             <constraint firstItem="Oqh-XU-tdF" firstAttribute="leading" secondItem="Uoj-im-Efm" secondAttribute="leading" constant="6" id="2a9-i9-7VH"/>
                                                             <constraint firstItem="vhk-YS-1xG" firstAttribute="centerX" secondItem="Uoj-im-Efm" secondAttribute="centerX" id="3dz-Ul-IMi"/>
-                                                            <constraint firstItem="ptc-Bp-ips" firstAttribute="centerX" secondItem="Uoj-im-Efm" secondAttribute="centerX" id="4b8-oD-7Wk"/>
                                                             <constraint firstItem="Oqh-XU-tdF" firstAttribute="top" secondItem="Uoj-im-Efm" secondAttribute="top" constant="4" id="IJj-aL-JzN"/>
                                                             <constraint firstAttribute="trailing" secondItem="ghV-10-TXm" secondAttribute="trailing" constant="6" id="RIa-NS-06z"/>
                                                             <constraint firstItem="ghV-10-TXm" firstAttribute="centerY" secondItem="Uoj-im-Efm" secondAttribute="centerY" id="Swp-4w-SW5"/>
-                                                            <constraint firstAttribute="bottom" secondItem="ptc-Bp-ips" secondAttribute="bottom" constant="8" id="U1R-T4-P0h"/>
                                                             <constraint firstItem="vhk-YS-1xG" firstAttribute="centerY" secondItem="Uoj-im-Efm" secondAttribute="centerY" id="uVR-rd-p8G"/>
                                                         </constraints>
                                                     </view>
@@ -354,12 +318,9 @@
                         <outlet property="latestDateLabel" destination="IEo-uY-EDU" id="dXF-LJ-HJM"/>
                         <outlet property="latestWeightLabel" destination="w6S-Py-TZn" id="bOx-dD-2ft"/>
                         <outlet property="menuButton" destination="m7E-fJ-Tvw" id="Yyl-cd-W3H"/>
-                        <outlet property="monthPercentLabel" destination="aZd-mv-koT" id="kkT-NY-7MB"/>
                         <outlet property="monthWeightLabel" destination="ib9-DK-8jq" id="Ty7-b2-lJ9"/>
                         <outlet property="scaleSegment" destination="SQG-fN-WfC" id="hPA-Nm-qRv"/>
-                        <outlet property="weekPercentLabel" destination="gCm-xO-DTi" id="80p-t4-ycJ"/>
                         <outlet property="weekWeightLabel" destination="tth-2K-eJd" id="2HO-k2-jwu"/>
-                        <outlet property="yearPercentLabel" destination="ptc-Bp-ips" id="m3J-pK-Wjw"/>
                         <outlet property="yearWeightLabel" destination="vhk-YS-1xG" id="gsi-nM-v50"/>
                         <segue destination="ReN-Li-Mrg" kind="show" identifier="showOptions" id="hzW-NP-eth"/>
                     </connections>

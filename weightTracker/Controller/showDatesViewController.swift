@@ -14,9 +14,47 @@ class showDatesViewController: UIViewController , UITableViewDelegate , UITableV
     let realm = try! Realm()
     var records = [Record]()
     
+    
+    @IBOutlet weak var noDataRangeLabel: UILabel!
+    
     @IBOutlet weak var showDatesTableView: UITableView!
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        if records.count == 0{
+            showDatesTableView.separatorStyle = .none
+            
+            let scaleImageView = UIImageView()
+            let label = UILabel()
+            label.text = "No data found"
+            label.textAlignment = .center
+            label.textColor = UIColor.white
+            label.font = UIFont.systemFont(ofSize: 20.0)
+            scaleImageView.image = UIImage(named: "weightScale")
+            
+            view.addSubview(scaleImageView)
+            view.addSubview(label)
+            
+            label.translatesAutoresizingMaskIntoConstraints = false
+            scaleImageView.translatesAutoresizingMaskIntoConstraints = false
+            
+            scaleImageView.heightAnchor.constraint(equalToConstant: 150).isActive = true
+            scaleImageView.widthAnchor.constraint(equalToConstant: 150).isActive = true
+            scaleImageView.centerXAnchor.constraint(equalTo: self.view.centerXAnchor).isActive = true
+            scaleImageView.centerYAnchor.constraint(equalTo: self.view.centerYAnchor).isActive = true
+            
+            label.heightAnchor.constraint(equalToConstant: 40).isActive = true
+            label.leadingAnchor.constraint(equalTo: self.view.leadingAnchor, constant: 16).isActive = true
+            label.trailingAnchor.constraint(equalTo: self.view.trailingAnchor, constant: -16).isActive = true
+            label.topAnchor.constraint(equalTo: scaleImageView.bottomAnchor, constant: 32).isActive = true
+            
+            
+            
+            
+            print("No data in dates")
+        }else {
+            tableView.separatorStyle = .singleLine
+        }
+        
         return records.count
     }
     
@@ -61,6 +99,7 @@ class showDatesViewController: UIViewController , UITableViewDelegate , UITableV
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        showDatesTableView.indicatorStyle = .white
         datesTitle.text = String("\(formatDate(date: startDate!)) - \(formatDate(date: endDate!))")
         fetchData()
     }
