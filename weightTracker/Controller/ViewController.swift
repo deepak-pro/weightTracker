@@ -13,12 +13,14 @@ import RealmSwift
 
 class ViewController: UIViewController , ScrollableGraphViewDataSource , UIViewControllerTransitioningDelegate {
 
-    @IBOutlet weak var graphView: ScrollableGraphView!
+    @IBOutlet weak var backView: UIView!
     
-    var linePlotData : [Double] = [1,2]
-    var linePlotScale = ["a","b"]
+    
+    var linePlotData : [Double] = []
+    var linePlotScale : [String] = []
     var maxScale : Double = 70
     var minScale : Double = 66
+    var graphView = ScrollableGraphView()
     
     let realm = try! Realm()
     
@@ -119,17 +121,6 @@ class ViewController: UIViewController , ScrollableGraphViewDataSource , UIViewC
                     linePlotData.append(i.weight)
                     linePlotScale.append(formatDateW(date: i.date!).uppercased())
                 }
-                
-                maxScale = linePlotData.max()! + Double(1)
-                minScale = linePlotData.min()! - Double(1)
-                for i in 1...30{
-                    linePlotData.append(minScale)
-                    linePlotScale.append("")
-                }
-                print(maxScale,minScale)
-                graphView.rangeMax = maxScale
-                graphView.rangeMin = minScale
-                graphView.reload()
             }
         }
         
@@ -139,7 +130,7 @@ class ViewController: UIViewController , ScrollableGraphViewDataSource , UIViewC
     func loadMonthAnalytics(){
         print("Creating Month Chart")
         
-        if let latestWeight = UserDefaults.standard.object(forKey: "latestWeight") as? Double{
+        if (UserDefaults.standard.object(forKey: "latestWeight") as? Double) != nil{
             if let latestDate = UserDefaults.standard.object(forKey: "latestDate") as? Date {
                 
                 let previousMonthDate = Calendar.current.date(byAdding: .month, value: -1, to: latestDate)
@@ -151,17 +142,6 @@ class ViewController: UIViewController , ScrollableGraphViewDataSource , UIViewC
                     linePlotData.append(i.weight)
                     linePlotScale.append(formatDateW(date: i.date!).uppercased())
                 }
-                print(linePlotScale,linePlotData)
-                maxScale = linePlotData.max()! + Double(1)
-                minScale = linePlotData.min()! - Double(1)
-                for i in 1...30{
-                    linePlotData.append(minScale)
-                    linePlotScale.append("")
-                }
-                print(maxScale,minScale)
-                graphView.rangeMax = maxScale
-                graphView.rangeMin = minScale
-                graphView.reload()
             }
         }
         
@@ -170,7 +150,7 @@ class ViewController: UIViewController , ScrollableGraphViewDataSource , UIViewC
     func loadYearAnalytics(){
         print("Creating Year chart")
         
-        if let latestWeight = UserDefaults.standard.object(forKey: "latestWeight") as? Double{
+        if (UserDefaults.standard.object(forKey: "latestWeight") as? Double) != nil{
             if let latestDate = UserDefaults.standard.object(forKey: "latestDate") as? Date {
                 linePlotData.removeAll()
                 linePlotScale.removeAll()
@@ -186,24 +166,13 @@ class ViewController: UIViewController , ScrollableGraphViewDataSource , UIViewC
                     }
                     sv = sv + 1
                 }
-                
-                print(linePlotScale,linePlotData)
-                maxScale = linePlotData.max()! + Double(1)
-                minScale = linePlotData.min()! - Double(1)
-                for i in 1...30{
-                    linePlotData.append(minScale)
-                    linePlotScale.append("")
-                }
-                print(maxScale,minScale)
-                graphView.rangeMax = maxScale
-                graphView.rangeMin = minScale
-                graphView.reload()
             }
         }
         
     }
     
     func loadChartAnalytics(){
+        graphView.removeFromSuperview()
         if scaleSegment.selectedSegmentIndex == 0 {
             loadWeekAnalytics()
         } else if scaleSegment.selectedSegmentIndex == 1 {
@@ -211,6 +180,7 @@ class ViewController: UIViewController , ScrollableGraphViewDataSource , UIViewC
         } else if scaleSegment.selectedSegmentIndex == 2 {
             loadYearAnalytics()
         }
+        reloadGraphView()
     }
     
     
@@ -268,15 +238,74 @@ class ViewController: UIViewController , ScrollableGraphViewDataSource , UIViewC
             
         }
     }
+ 
+    func reloadGraphView(){
+        if linePlotData.isEmpty {
+            backView.backgroundColor = UIColor.clear
+            let label = UILabel()
+            label.text = "Not enough data, Please add your weight"
+            label.textColor = UIColor.white
+            label.font = UIFont.systemFont(ofSize: 20.0)
+            label.textAlignment = .center
+            label.numberOfLines = 2
+            backView.addSubview(label)
+            
+            label.translatesAutoresizingMaskIntoConstraints = false
+            label.leadingAnchor.constraint(equalTo: backView.leadingAnchor, constant:16).isActive = true
+            label.trailingAnchor.constraint(equalTo: backView.trailingAnchor, constant : -16).isActive = true
+            label.centerXAnchor.constraint(equalTo: backView.centerXAnchor).isActive = true
+            label.centerYAnchor.constraint(equalTo: backView.centerYAnchor).isActive = true
+        }else {
+            graphView = ScrollableGraphView(frame: CGRect(), dataSource: self as ScrollableGraphViewDataSource)
+            graphView.backgroundFillColor = UIColor(red: 27/255, green: 27/255, blue: 27/255, alpha: 1.0)
+            graphView.tintColor = UIColor.white
+            graphView.rangeMin = Double(linePlotData.min()! - 2)
+            graphView.rangeMax = Double(linePlotData.max()! + 2)
+            
+            let linePlot = LinePlot(identifier: "line")
+            linePlot.lineWidth = CGFloat(5.0)
+            linePlot.lineColor = UIColor.white
+            linePlot.lineStyle = .smooth
+            linePlot.shouldFill = true
+            linePlot.fillType = .gradient
+            linePlot.fillColor = UIColor.red
+            linePlot.fillGradientStartColor = UIColor.white
+            linePlot.fillGradientEndColor = UIColor(red: 27/255, green: 27/255, blue: 27/255, alpha: 1.0)
+            linePlot.fillGradientType = .linear
+            linePlot.adaptAnimationType = ScrollableGraphViewAnimationType.elastic
+            
+            let dotPlot = DotPlot(identifier: "darkLineDot") // Add dots as well.
+            dotPlot.dataPointSize = 2
+            dotPlot.dataPointFillColor = UIColor.white
+            dotPlot.adaptAnimationType = ScrollableGraphViewAnimationType.elastic
+            
+            let referenceLines = ReferenceLines()
+            referenceLines.dataPointLabelColor = UIColor.white
+            referenceLines.referenceLineColor = UIColor.white
+            referenceLines.referenceLineLabelColor = UIColor.white
+            
+            graphView.shouldRangeAlwaysStartAtZero = false
+            graphView.addReferenceLines(referenceLines: referenceLines)
+            graphView.addPlot(plot: linePlot)
+            graphView.addPlot(plot: dotPlot)
+            
+            backView.addSubview(graphView)
+            
+            
+            graphView.translatesAutoresizingMaskIntoConstraints = false
+            graphView.leadingAnchor.constraint(equalTo : backView.leadingAnchor, constant : 0).isActive = true
+            graphView.trailingAnchor.constraint(equalTo : backView.trailingAnchor , constant : 0 ).isActive = true
+            graphView.topAnchor.constraint(equalTo: backView.topAnchor, constant: 0).isActive = true
+            graphView.heightAnchor.constraint(equalToConstant: backView.frame.height).isActive = true
+        }
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         updatelatestWeightlabel()
-        maxScale = linePlotData.max() ?? 150 + Double(5)
-        minScale = linePlotData.min() ?? 50 - Double(5)
+        maxScale = linePlotData.max() ?? 150 + Double(2)
+        minScale = linePlotData.min() ?? 50 - Double(2)
         
-        graphView.dataSource = self as ScrollableGraphViewDataSource
-        setUpGraphView()
         setUpCard()
         loadStackAnalytics()
         loadChartAnalytics()
@@ -406,45 +435,6 @@ class ViewController: UIViewController , ScrollableGraphViewDataSource , UIViewC
         for animator in runningAnimations {
             animator.continueAnimation(withTimingParameters: nil, durationFactor: 0)
         }
-    }
-    
-
-    func setUpGraphView(){
-        graphView.backgroundFillColor = UIColor(red: 27/255, green: 27/255, blue: 27/255, alpha: 1.0)
-        graphView.tintColor = UIColor.white
-        
-        graphView.rangeMax = Double(maxScale)
-        graphView.rangeMin = Double(minScale)
-        
-        let linePlot = LinePlot(identifier: "line")
-        linePlot.lineWidth = CGFloat(5.0)
-        linePlot.lineColor = UIColor.white
-        linePlot.lineStyle = .smooth
-        linePlot.shouldFill = true
-        linePlot.fillType = .gradient
-        linePlot.fillColor = UIColor.red
-        linePlot.fillGradientStartColor = UIColor.white
-        linePlot.fillGradientEndColor = UIColor(red: 27/255, green: 27/255, blue: 27/255, alpha: 1.0)
-        linePlot.fillGradientType = .linear
-        linePlot.adaptAnimationType = ScrollableGraphViewAnimationType.easeOut
-        linePlot.animationDuration = Double(0.5)
-        
-        let dotPlot = DotPlot(identifier: "darkLineDot") // Add dots as well.
-        dotPlot.dataPointSize = 2
-        dotPlot.dataPointFillColor = UIColor.white
-        dotPlot.adaptAnimationType = ScrollableGraphViewAnimationType.elastic
-        
-        let referenceLines = ReferenceLines()
-        referenceLines.dataPointLabelColor = UIColor.white
-        referenceLines.referenceLineColor = UIColor.white
-        referenceLines.referenceLineLabelColor = UIColor.white
-        
-        graphView.dataPointSpacing = CGFloat(50.0)
-        graphView.shouldAdaptRange = false
-        graphView.addReferenceLines(referenceLines: referenceLines)
-        graphView.addPlot(plot: linePlot)
-        graphView.addPlot(plot: dotPlot)
-        
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

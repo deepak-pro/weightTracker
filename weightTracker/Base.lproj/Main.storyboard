@@ -288,7 +288,7 @@
                                     <constraint firstItem="5Qz-hj-hv3" firstAttribute="top" secondItem="fyK-az-JEW" secondAttribute="top" id="rFo-Uf-wE8"/>
                                 </constraints>
                             </view>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ORQ-uH-RWk" customClass="ScrollableGraphView" customModule="ScrollableGraphView">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ORQ-uH-RWk">
                                 <rect key="frame" x="6" y="126" width="363" height="229.5"/>
                                 <color key="backgroundColor" red="0.082352941176470587" green="0.082352941176470587" blue="0.082352941176470587" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </view>
@@ -314,7 +314,7 @@
                         <viewLayoutGuide key="safeArea" id="CcR-II-Qrk"/>
                     </view>
                     <connections>
-                        <outlet property="graphView" destination="ORQ-uH-RWk" id="Jvw-WO-XJ7"/>
+                        <outlet property="backView" destination="ORQ-uH-RWk" id="IJN-mI-sBA"/>
                         <outlet property="latestDateLabel" destination="IEo-uY-EDU" id="dXF-LJ-HJM"/>
                         <outlet property="latestWeightLabel" destination="w6S-Py-TZn" id="bOx-dD-2ft"/>
                         <outlet property="menuButton" destination="m7E-fJ-Tvw" id="Yyl-cd-W3H"/>
