@@ -15,7 +15,8 @@ class ViewController: UIViewController , ScrollableGraphViewDataSource , UIViewC
 
     @IBOutlet weak var graphView: ScrollableGraphView!
     
-    var linePlotData = [68.5,68.4,69,68,68,68.5,67.5,67.4,67.1,67.9]
+    var linePlotData : [Double] = [1,5,2,3,4,8,6,8,4,5]
+    var linePlotScale = ["a","b","c","d","e","f","g","h","i","j"]
     var maxScale : Double = 70
     var minScale : Double = 66
     
@@ -65,7 +66,7 @@ class ViewController: UIViewController , ScrollableGraphViewDataSource , UIViewC
     }
     
     func label(atIndex pointIndex: Int) -> String {
-        return "JUN \(pointIndex + 1)"
+        return linePlotScale[pointIndex]
     }
     
     func numberOfPoints() -> Int {
@@ -87,12 +88,64 @@ class ViewController: UIViewController , ScrollableGraphViewDataSource , UIViewC
     
     func formatDate(date : Date) -> String {
         let formatter = DateFormatter()
-        formatter.dateFormat = "MMMM  dd,  yyyy"
+        formatter.dateFormat = "MMM  dd,  yyyy"
         let result = formatter.string(from: date)
         return result
     }
     
-    func loadAnalytics(){
+    func formatDateW(date : Date) -> String {
+        let formatter = DateFormatter()
+        formatter.dateFormat = "MMM dd"
+        let result = formatter.string(from: date)
+        return result
+    }
+    
+    func loadWeekAnalytics(){
+        print("Creating Week Chart")
+        if let latestWeight = UserDefaults.standard.object(forKey: "latestWeight") as? Double{
+            if let latestDate = UserDefaults.standard.object(forKey: "latestDate") as? Date {
+                let previousWeekDate = Calendar.current.date(byAdding: .day, value: -7, to: latestDate)
+                let results = realm.objects(Record.self).sorted(byKeyPath: "date", ascending: true).filter("date BETWEEN {%@, %@}",previousWeekDate,latestDate)
+                linePlotData.removeAll()
+                linePlotScale.removeAll()
+                for i in results {
+                    linePlotData.append(i.weight)
+                    linePlotScale.append(formatDateW(date: i.date!).uppercased())
+                }
+                maxScale = linePlotData.max()! + Double(1)
+                minScale = linePlotData.min()! - Double(1)
+                print(maxScale,minScale)
+                graphView.rangeMax = maxScale
+                graphView.rangeMin = minScale
+                graphView.reload()
+                
+                
+            }
+        }
+        
+        
+    }
+    
+    func loadMonthAnalytics(){
+        print("Creating Month Chart")
+    }
+    
+    func loadYearAnalytics(){
+        print("Creating Year chart")
+    }
+    
+    func loadChartAnalytics(){
+        if scaleSegment.selectedSegmentIndex == 0 {
+            loadWeekAnalytics()
+        } else if scaleSegment.selectedSegmentIndex == 1 {
+            loadMonthAnalytics()
+        } else if scaleSegment.selectedSegmentIndex == 2 {
+            loadYearAnalytics()
+        }
+    }
+    
+    
+    func loadStackAnalytics(){
         if let latestWeight = UserDefaults.standard.object(forKey: "latestWeight") as? Double{
             if let latestDate = UserDefaults.standard.object(forKey: "latestDate") as? Date {
                 
@@ -156,7 +209,8 @@ class ViewController: UIViewController , ScrollableGraphViewDataSource , UIViewC
         graphView.dataSource = self as ScrollableGraphViewDataSource
         setUpGraphView()
         setUpCard()
-        loadAnalytics()
+        loadStackAnalytics()
+        loadChartAnalytics()
         self.cardViewController.view.layer.cornerRadius = 0
         
     }
@@ -315,7 +369,6 @@ class ViewController: UIViewController , ScrollableGraphViewDataSource , UIViewC
         referenceLines.referenceLineColor = UIColor.white
         referenceLines.referenceLineLabelColor = UIColor.white
         
-        
         graphView.shouldAdaptRange = false
         graphView.addReferenceLines(referenceLines: referenceLines)
         graphView.addPlot(plot: linePlot)
@@ -362,7 +415,7 @@ class ViewController: UIViewController , ScrollableGraphViewDataSource , UIViewC
     @IBAction func segmentChanged(_ sender: Any) {
         print("Selected Segment is \(scaleSegment.selectedSegmentIndex)")
         linePlotData.shuffle()
-        graphView.reload()
+        loadChartAnalytics()
     }
     
     
