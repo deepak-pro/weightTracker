@@ -314,7 +314,7 @@
                         <viewLayoutGuide key="safeArea" id="CcR-II-Qrk"/>
                     </view>
                     <connections>
-                        <outlet property="graphView" destination="ORQ-uH-RWk" id="zcy-q3-PUx"/>
+                        <outlet property="graphView" destination="ORQ-uH-RWk" id="Jvw-WO-XJ7"/>
                         <outlet property="latestDateLabel" destination="IEo-uY-EDU" id="dXF-LJ-HJM"/>
                         <outlet property="latestWeightLabel" destination="w6S-Py-TZn" id="bOx-dD-2ft"/>
                         <outlet property="menuButton" destination="m7E-fJ-Tvw" id="Yyl-cd-W3H"/>

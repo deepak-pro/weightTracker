@@ -15,8 +15,8 @@ class ViewController: UIViewController , ScrollableGraphViewDataSource , UIViewC
 
     @IBOutlet weak var graphView: ScrollableGraphView!
     
-    var linePlotData : [Double] = [1,5,2,3,4,8,6,8,4,5]
-    var linePlotScale = ["a","b","c","d","e","f","g","h","i","j"]
+    var linePlotData : [Double] = [1,2]
+    var linePlotScale = ["a","b"]
     var maxScale : Double = 70
     var minScale : Double = 66
     
@@ -100,6 +100,13 @@ class ViewController: UIViewController , ScrollableGraphViewDataSource , UIViewC
         return result
     }
     
+    func formatDateM(date : Date) -> String {
+        let formatter = DateFormatter()
+        formatter.dateFormat = "MMM dd"
+        let result = formatter.string(from: date)
+        return result
+    }
+    
     func loadWeekAnalytics(){
         print("Creating Week Chart")
         if let latestWeight = UserDefaults.standard.object(forKey: "latestWeight") as? Double{
@@ -112,14 +119,17 @@ class ViewController: UIViewController , ScrollableGraphViewDataSource , UIViewC
                     linePlotData.append(i.weight)
                     linePlotScale.append(formatDateW(date: i.date!).uppercased())
                 }
+                
                 maxScale = linePlotData.max()! + Double(1)
                 minScale = linePlotData.min()! - Double(1)
+                for i in 1...30{
+                    linePlotData.append(minScale)
+                    linePlotScale.append("")
+                }
                 print(maxScale,minScale)
                 graphView.rangeMax = maxScale
                 graphView.rangeMin = minScale
                 graphView.reload()
-                
-                
             }
         }
         
@@ -128,10 +138,69 @@ class ViewController: UIViewController , ScrollableGraphViewDataSource , UIViewC
     
     func loadMonthAnalytics(){
         print("Creating Month Chart")
+        
+        if let latestWeight = UserDefaults.standard.object(forKey: "latestWeight") as? Double{
+            if let latestDate = UserDefaults.standard.object(forKey: "latestDate") as? Date {
+                
+                let previousMonthDate = Calendar.current.date(byAdding: .month, value: -1, to: latestDate)
+                let results = realm.objects(Record.self).sorted(byKeyPath: "date", ascending: true).filter("date BETWEEN {%@, %@}" , previousMonthDate, latestDate)
+                linePlotData.removeAll()
+                linePlotScale.removeAll()
+                
+                for i in results {
+                    linePlotData.append(i.weight)
+                    linePlotScale.append(formatDateW(date: i.date!).uppercased())
+                }
+                print(linePlotScale,linePlotData)
+                maxScale = linePlotData.max()! + Double(1)
+                minScale = linePlotData.min()! - Double(1)
+                for i in 1...30{
+                    linePlotData.append(minScale)
+                    linePlotScale.append("")
+                }
+                print(maxScale,minScale)
+                graphView.rangeMax = maxScale
+                graphView.rangeMin = minScale
+                graphView.reload()
+            }
+        }
+        
     }
     
     func loadYearAnalytics(){
         print("Creating Year chart")
+        
+        if let latestWeight = UserDefaults.standard.object(forKey: "latestWeight") as? Double{
+            if let latestDate = UserDefaults.standard.object(forKey: "latestDate") as? Date {
+                linePlotData.removeAll()
+                linePlotScale.removeAll()
+                var sv = -12
+                while (sv != 0){
+                    let sd = Calendar.current.date(byAdding: .month, value: sv, to: latestDate)
+                    let ed = Calendar.current.date(byAdding: .month, value: sv + 1, to: latestDate)
+                    print("Finding Values between",sd,ed)
+                    let result = realm.objects(Record.self).sorted(byKeyPath: "date", ascending: true).filter("date BETWEEN {%@, %@}",sd,ed).first
+                    if result != nil {
+                        linePlotData.append((result?.weight)!)
+                        linePlotScale.append(formatDateM(date: (result?.date)!))
+                    }
+                    sv = sv + 1
+                }
+                
+                print(linePlotScale,linePlotData)
+                maxScale = linePlotData.max()! + Double(1)
+                minScale = linePlotData.min()! - Double(1)
+                for i in 1...30{
+                    linePlotData.append(minScale)
+                    linePlotScale.append("")
+                }
+                print(maxScale,minScale)
+                graphView.rangeMax = maxScale
+                graphView.rangeMin = minScale
+                graphView.reload()
+            }
+        }
+        
     }
     
     func loadChartAnalytics(){
@@ -289,6 +358,7 @@ class ViewController: UIViewController , ScrollableGraphViewDataSource , UIViewC
                 case .collapsed:
                     self.cardViewController.view.layer.cornerRadius = 0
                     self.updatelatestWeightlabel()
+                    self.loadChartAnalytics()
                 }
             }
             
@@ -369,6 +439,7 @@ class ViewController: UIViewController , ScrollableGraphViewDataSource , UIViewC
         referenceLines.referenceLineColor = UIColor.white
         referenceLines.referenceLineLabelColor = UIColor.white
         
+        graphView.dataPointSpacing = CGFloat(50.0)
         graphView.shouldAdaptRange = false
         graphView.addReferenceLines(referenceLines: referenceLines)
         graphView.addPlot(plot: linePlot)
@@ -414,7 +485,6 @@ class ViewController: UIViewController , ScrollableGraphViewDataSource , UIViewC
     
     @IBAction func segmentChanged(_ sender: Any) {
         print("Selected Segment is \(scaleSegment.selectedSegmentIndex)")
-        linePlotData.shuffle()
         loadChartAnalytics()
     }
     
