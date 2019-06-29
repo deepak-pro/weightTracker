@@ -33,9 +33,9 @@ class introViewController: UIViewController , PaperOnboardingDataSource {
         let titleFont = UIFont(name: "AvenirNext-Bold", size: 24)!
         let descirptionFont = UIFont(name: "AvenirNext-Regular", size: 18)!
         return [
-            OnboardingItemInfo(informationImage: UIImage(named: "logo")!,
-                               title: "Instrumental",
-                               description: "A Drumpad for music instruments. Swipe for next",
+            OnboardingItemInfo(informationImage: UIImage(named: "fitnessGraph")!,
+                               title: "BeFit : Fitness tracker",
+                               description: "A fitness analytics tool to track your weight loss",
                                pageIcon: UIImage(named: "nothing")!,
                                color: backgroundColorOne,
                                titleColor: UIColor.white,
@@ -43,9 +43,9 @@ class introViewController: UIViewController , PaperOnboardingDataSource {
                                titleFont: titleFont,
                                descriptionFont: descirptionFont),
             
-            OnboardingItemInfo(informationImage: UIImage(named: "logo")!,
-                               title: "Instruments and Loops",
-                               description: "Select instrument of your choice and play the tune you want.",
+            OnboardingItemInfo(informationImage: UIImage(named: "fitnessGraph")!,
+                               title: "Get detialed reports",
+                               description: "Get detailed analytics reports to know your progress",
                                pageIcon: UIImage(named: "nothing")!,
                                color: backgroundColorTwo,
                                titleColor: UIColor.white,
@@ -53,9 +53,9 @@ class introViewController: UIViewController , PaperOnboardingDataSource {
                                titleFont: titleFont,
                                descriptionFont: descirptionFont),
             
-            OnboardingItemInfo(informationImage: UIImage(named: "logo")!,
-                               title: "Tap On Tiles to Play",
-                               description: "Total of Eight tiles on drumpad for different notes.",
+            OnboardingItemInfo(informationImage: UIImage(named: "fitnessGraph")!,
+                               title: "Get detialed reports",
+                               description: "Get detailed analytics reports to know your progress",
                                pageIcon: UIImage(named: "nothing")!,
                                color: backgroundColorOne,
                                titleColor: UIColor.white,

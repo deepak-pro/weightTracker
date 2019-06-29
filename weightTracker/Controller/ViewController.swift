@@ -197,8 +197,10 @@ class ViewController: UIViewController , ScrollableGraphViewDataSource , UIViewC
                     let differenceInWeek = latestWeight - lastWeekWeight!
                     if differenceInWeek < 0 {
                         weekArrow.image = UIImage(named: "greenDecrease")
+                        weekWeightLabel.textColor = UIColor.decreased
                     }else if differenceInWeek > 0 {
                         weekArrow.image = UIImage(named: "redIncrease")
+                        weekWeightLabel.textColor = UIColor.increased
                     }
                     weekWeightLabel.text = String(Double(round(10 * differenceInWeek)/10)) + " kg"
                 }else {
@@ -212,8 +214,10 @@ class ViewController: UIViewController , ScrollableGraphViewDataSource , UIViewC
                     let differenceInMonth = latestWeight - lastMonthWeight!
                     if differenceInMonth < 0 {
                         monthArrow.image = UIImage(named: "greenDecrease")
+                        monthWeightLabel.textColor = UIColor.decreased
                     } else if differenceInMonth > 0 {
                         monthArrow.image = UIImage(named: "redIncrease")
+                        monthWeightLabel.textColor = UIColor.increased
                     }
                     monthWeightLabel.text = String(Double(round(10 * differenceInMonth)/10)) + " kg"
                 }else {
@@ -227,8 +231,10 @@ class ViewController: UIViewController , ScrollableGraphViewDataSource , UIViewC
                     let differenceInYear = latestWeight - lastYearWeight!
                     if differenceInYear < 0 {
                         yearArrow.image = UIImage(named: "greenDecrease")
+                        yearWeightLabel.textColor = UIColor.decreased
                     } else if differenceInYear > 0 {
                         yearArrow.image = UIImage(named: "redIncrease")
+                        yearWeightLabel.textColor = UIColor.increased
                     }
                     yearWeightLabel.text = String(Double(round(10 * differenceInYear)/10)) + " kg"
                 }
@@ -254,7 +260,7 @@ class ViewController: UIViewController , ScrollableGraphViewDataSource , UIViewC
             let label = UILabel()
             label.text = "Not enough data, Please add your weight"
             label.textColor = UIColor.white
-            label.font = UIFont.systemFont(ofSize: 20.0)
+            label.font = UIFont(name: "AvenirNext-Regular", size: 18)!
             label.textAlignment = .center
             label.numberOfLines = 2
             backView.addSubview(label)
@@ -505,5 +511,10 @@ class ViewController: UIViewController , ScrollableGraphViewDataSource , UIViewC
     
     
 
+}
+
+extension UIColor {
+    static var increased: UIColor  { return UIColor(red: 225/255, green: 18/255, blue: 8/255, alpha: 1) }
+    static var decreased: UIColor { return UIColor(red: 0/255, green: 208/255, blue: 108/255, alpha: 1) }
 }
 
