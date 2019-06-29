@@ -122,6 +122,7 @@ class CardViewController: UIViewController  , UIPickerViewDelegate , UIPickerVie
         }
         weightPickerView.delegate = self
         weightPickerView.dataSource = self
+        print("Previous Weight is \(previousWeight)")
         extractComponentFromPreviousWeight()
         setPreviousWeight()
         doneButtonOut.layer.cornerRadius = 20.0

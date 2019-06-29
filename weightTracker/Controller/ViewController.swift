@@ -115,8 +115,6 @@ class ViewController: UIViewController , ScrollableGraphViewDataSource , UIViewC
             if let latestDate = UserDefaults.standard.object(forKey: "latestDate") as? Date {
                 let previousWeekDate = Calendar.current.date(byAdding: .day, value: -7, to: latestDate)
                 let results = realm.objects(Record.self).sorted(byKeyPath: "date", ascending: true).filter("date BETWEEN {%@, %@}",previousWeekDate,latestDate)
-                linePlotData.removeAll()
-                linePlotScale.removeAll()
                 for i in results {
                     linePlotData.append(i.weight)
                     linePlotScale.append(formatDateW(date: i.date!).uppercased())
@@ -135,8 +133,6 @@ class ViewController: UIViewController , ScrollableGraphViewDataSource , UIViewC
                 
                 let previousMonthDate = Calendar.current.date(byAdding: .month, value: -1, to: latestDate)
                 let results = realm.objects(Record.self).sorted(byKeyPath: "date", ascending: true).filter("date BETWEEN {%@, %@}" , previousMonthDate, latestDate)
-                linePlotData.removeAll()
-                linePlotScale.removeAll()
                 
                 for i in results {
                     linePlotData.append(i.weight)
@@ -150,7 +146,7 @@ class ViewController: UIViewController , ScrollableGraphViewDataSource , UIViewC
     func loadYearAnalytics(){
         print("Creating Year chart")
         
-        if (UserDefaults.standard.object(forKey: "latestWeight") as? Double) != nil{
+        if let latestWeight = UserDefaults.standard.object(forKey: "latestWeight") as? Double {
             if let latestDate = UserDefaults.standard.object(forKey: "latestDate") as? Date {
                 linePlotData.removeAll()
                 linePlotScale.removeAll()
@@ -166,6 +162,8 @@ class ViewController: UIViewController , ScrollableGraphViewDataSource , UIViewC
                     }
                     sv = sv + 1
                 }
+                linePlotData.append(latestWeight)
+                linePlotScale.append(formatDateM(date: latestDate))
             }
         }
         
@@ -173,6 +171,8 @@ class ViewController: UIViewController , ScrollableGraphViewDataSource , UIViewC
     
     func loadChartAnalytics(){
         graphView.removeFromSuperview()
+        linePlotData.removeAll()
+        linePlotScale.removeAll()
         if scaleSegment.selectedSegmentIndex == 0 {
             loadWeekAnalytics()
         } else if scaleSegment.selectedSegmentIndex == 1 {
@@ -235,7 +235,14 @@ class ViewController: UIViewController , ScrollableGraphViewDataSource , UIViewC
                 
             }
         }else {
-            
+            weekWeightLabel.text = "----"
+            monthWeightLabel.text = "----"
+            yearWeightLabel.text = "----"
+            latestWeightLabel.text = "----"
+            latestDateLabel.text = "----"
+            weekArrow.image = nil
+            monthArrow.image = nil
+            yearArrow.image = nil
         }
     }
  
@@ -272,7 +279,7 @@ class ViewController: UIViewController , ScrollableGraphViewDataSource , UIViewC
             linePlot.fillGradientStartColor = UIColor.white
             linePlot.fillGradientEndColor = UIColor(red: 27/255, green: 27/255, blue: 27/255, alpha: 1.0)
             linePlot.fillGradientType = .linear
-            linePlot.adaptAnimationType = ScrollableGraphViewAnimationType.elastic
+            linePlot.adaptAnimationType = ScrollableGraphViewAnimationType.easeOut
             
             let dotPlot = DotPlot(identifier: "darkLineDot") // Add dots as well.
             dotPlot.dataPointSize = 2
@@ -284,6 +291,7 @@ class ViewController: UIViewController , ScrollableGraphViewDataSource , UIViewC
             referenceLines.referenceLineColor = UIColor.white
             referenceLines.referenceLineLabelColor = UIColor.white
             
+            graphView.dataPointSpacing = CGFloat(50.0)
             graphView.shouldRangeAlwaysStartAtZero = false
             graphView.addReferenceLines(referenceLines: referenceLines)
             graphView.addPlot(plot: linePlot)
@@ -311,6 +319,12 @@ class ViewController: UIViewController , ScrollableGraphViewDataSource , UIViewC
         loadChartAnalytics()
         self.cardViewController.view.layer.cornerRadius = 0
         
+    }
+    
+    func popupDidDisappear(){
+        print("Doing Stuff")
+        loadStackAnalytics()
+        loadChartAnalytics()
     }
     
     func setUpCard(){
@@ -457,7 +471,9 @@ class ViewController: UIViewController , ScrollableGraphViewDataSource , UIViewC
         var newStartingPoint = CGPoint(x: menuButton.frame.midX + 7.0  , y: menuButton.frame.midY + 36.0)
         transition.startingPoint = newStartingPoint
         transition.circleColor = menuButton.backgroundColor!
-        
+        print("Doing Stuffs")
+        loadStackAnalytics()
+        loadChartAnalytics()
         return transition
         
     }
