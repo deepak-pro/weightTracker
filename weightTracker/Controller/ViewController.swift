@@ -62,6 +62,8 @@ class ViewController: UIViewController , ScrollableGraphViewDataSource , UIViewC
         switch(plot.identifier) {
         case "line":
             return Double(linePlotData[pointIndex])
+        case "darkLineDot":
+            return Double(linePlotData[pointIndex])
         default:
             return 0
         }
@@ -270,21 +272,23 @@ class ViewController: UIViewController , ScrollableGraphViewDataSource , UIViewC
             graphView.rangeMax = Double(linePlotData.max()! + 2)
             
             let linePlot = LinePlot(identifier: "line")
-            linePlot.lineWidth = CGFloat(5.0)
+            linePlot.lineWidth = CGFloat(3.0)
             linePlot.lineColor = UIColor.white
             linePlot.lineStyle = .smooth
             linePlot.shouldFill = true
             linePlot.fillType = .gradient
             linePlot.fillColor = UIColor.red
-            linePlot.fillGradientStartColor = UIColor.white
+            linePlot.fillGradientStartColor = UIColor.white //UIColor(displayP3Red: 46/255, green: 134/255, blue: 206/255, alpha: 1.0)
             linePlot.fillGradientEndColor = UIColor(red: 27/255, green: 27/255, blue: 27/255, alpha: 1.0)
             linePlot.fillGradientType = .linear
             linePlot.adaptAnimationType = ScrollableGraphViewAnimationType.easeOut
+            linePlot.animationDuration = 0.5
             
             let dotPlot = DotPlot(identifier: "darkLineDot") // Add dots as well.
-            dotPlot.dataPointSize = 2
+            dotPlot.dataPointSize = 4
             dotPlot.dataPointFillColor = UIColor.white
-            dotPlot.adaptAnimationType = ScrollableGraphViewAnimationType.elastic
+            dotPlot.adaptAnimationType = ScrollableGraphViewAnimationType.easeOut
+            dotPlot.animationDuration = 0.5
             
             let referenceLines = ReferenceLines()
             referenceLines.dataPointLabelColor = UIColor.white
