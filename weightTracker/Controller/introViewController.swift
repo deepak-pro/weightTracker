@@ -28,7 +28,7 @@ class introViewController: UIViewController , PaperOnboardingDataSource {
     }
     
     func onboardingItem(at index: Int) -> OnboardingItemInfo {
-        let backgroundColorOne = UIColor(red: 16/255, green: 16/255, blue: 16/255, alpha: 1)
+        let backgroundColorOne = UIColor(red: 20/255, green: 23/255, blue: 21/255, alpha: 1)
         let backgroundColorTwo = UIColor(displayP3Red: 46/255, green: 134/255, blue: 206/255, alpha: 1.0)
         let titleFont = UIFont(name: "AvenirNext-Bold", size: 24)!
         let descirptionFont = UIFont(name: "AvenirNext-Regular", size: 18)!

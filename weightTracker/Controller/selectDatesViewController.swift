@@ -54,6 +54,12 @@ class selectDatesViewController: UIViewController , FSCalendarDelegate , FSCalen
         calender.heightAnchor.constraint(equalToConstant: 400).isActive = true
         calender.centerYAnchor.constraint(equalTo: self.view.centerYAnchor).isActive = true
         
+        calender.transform = CGAffineTransform(scaleX: 0.2, y: 0.2)
+        
+        UIView.animate(withDuration: 0.3, delay: 0, usingSpringWithDamping: 0.5, initialSpringVelocity: 0, options: [],  animations: {
+            self.calender.transform = .identity
+        })
+        
         // Can animate popup
         
         
@@ -83,7 +89,11 @@ class selectDatesViewController: UIViewController , FSCalendarDelegate , FSCalen
             endDateButton.setTitle(formatDate(date: date), for: .normal)
         }
         
-        calendar.removeFromSuperview()
+        UIView.animate(withDuration: 0.2, animations: {
+            self.calender.alpha = 0
+        }) { (success) in
+            self.calender.removeFromSuperview()
+        }
         
     }
     
