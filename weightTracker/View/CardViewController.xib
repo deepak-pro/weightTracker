@@ -29,9 +29,9 @@
                     <rect key="frame" x="0.0" y="0.0" width="320" height="60"/>
                     <subviews>
                         <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="drawerHandle" translatesAutoresizingMaskIntoConstraints="NO" id="sma-IO-fiy">
-                            <rect key="frame" x="140" y="8" width="40" height="5"/>
+                            <rect key="frame" x="145" y="8" width="30" height="5"/>
                             <constraints>
-                                <constraint firstAttribute="width" constant="40" id="SeJ-53-euI"/>
+                                <constraint firstAttribute="width" constant="30" id="SeJ-53-euI"/>
                                 <constraint firstAttribute="height" constant="5" id="pIl-8N-mrI"/>
                             </constraints>
                         </imageView>
