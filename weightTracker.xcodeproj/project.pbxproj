@@ -24,6 +24,8 @@
 		006B19E322B7E837005FB3F6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 006B19E122B7E837005FB3F6 /* Main.storyboard */; };
 		006B19E522B7E838005FB3F6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 006B19E422B7E838005FB3F6 /* Assets.xcassets */; };
 		006B19E822B7E838005FB3F6 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 006B19E622B7E838005FB3F6 /* LaunchScreen.storyboard */; };
+		009B1E0922C72C5200F9B00B /* introViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 009B1E0822C72C5200F9B00B /* introViewController.swift */; };
+		009B1E0B22C7300C00F9B00B /* OnboardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 009B1E0A22C7300C00F9B00B /* OnboardingView.swift */; };
 		00DAF10622BD0B91005798C7 /* optionsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00DAF10522BD0B91005798C7 /* optionsTableViewCell.swift */; };
 		00E1DFF822BC9A76001E835D /* optionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00E1DFF722BC9A76001E835D /* optionsViewController.swift */; };
 		00E2094422C13BB1003F827C /* historyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00E2094322C13BB1003F827C /* historyViewController.swift */; };
@@ -80,6 +82,8 @@
 		006B19E422B7E838005FB3F6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		006B19E722B7E838005FB3F6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		006B19E922B7E838005FB3F6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		009B1E0822C72C5200F9B00B /* introViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = introViewController.swift; sourceTree = "<group>"; };
+		009B1E0A22C7300C00F9B00B /* OnboardingView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OnboardingView.swift; sourceTree = "<group>"; };
 		00DAF10522BD0B91005798C7 /* optionsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = optionsTableViewCell.swift; sourceTree = "<group>"; };
 		00E1DFF722BC9A76001E835D /* optionsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = optionsViewController.swift; sourceTree = "<group>"; };
 		00E2094322C13BB1003F827C /* historyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = historyViewController.swift; sourceTree = "<group>"; };
@@ -167,6 +171,7 @@
 		00E1DFF522BC9A35001E835D /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				009B1E0822C72C5200F9B00B /* introViewController.swift */,
 				006B19DF22B7E837005FB3F6 /* ViewController.swift */,
 				005E2B8D22BA9A100072F513 /* CardViewController.swift */,
 				00E1DFF722BC9A76001E835D /* optionsViewController.swift */,
@@ -181,6 +186,7 @@
 		00E1DFF622BC9A4B001E835D /* View */ = {
 			isa = PBXGroup;
 			children = (
+				009B1E0A22C7300C00F9B00B /* OnboardingView.swift */,
 				005E2B8B22BA99FB0072F513 /* CardViewController.xib */,
 				002EFD7922BCF50800AA7EAB /* CircularTransition.swift */,
 				00DAF10522BD0B91005798C7 /* optionsTableViewCell.swift */,
@@ -356,6 +362,7 @@
 				"${BUILT_PRODUCTS_DIR}/Realm/Realm.framework",
 				"${BUILT_PRODUCTS_DIR}/RealmSwift/RealmSwift.framework",
 				"${BUILT_PRODUCTS_DIR}/ScrollableGraphView/ScrollableGraphView.framework",
+				"${BUILT_PRODUCTS_DIR}/paper-onboarding/paper_onboarding.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
@@ -365,6 +372,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Realm.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RealmSwift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ScrollableGraphView.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/paper_onboarding.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -389,12 +397,14 @@
 				002EFD7A22BCF50800AA7EAB /* CircularTransition.swift in Sources */,
 				005F4B5722C448650094F586 /* showDatesViewController.swift in Sources */,
 				006B19E022B7E837005FB3F6 /* ViewController.swift in Sources */,
+				009B1E0B22C7300C00F9B00B /* OnboardingView.swift in Sources */,
 				0044DB8B22C4BDFC007972A5 /* setPreviousViewController.swift in Sources */,
 				006AF24A22C1ADDF00E11419 /* Record.swift in Sources */,
 				005F4B5922C449D00094F586 /* showDatesTableViewCell.swift in Sources */,
 				00E2094622C13BF5003F827C /* historyTableViewCell.swift in Sources */,
 				00E1DFF822BC9A76001E835D /* optionsViewController.swift in Sources */,
 				00E2094422C13BB1003F827C /* historyViewController.swift in Sources */,
+				009B1E0922C72C5200F9B00B /* introViewController.swift in Sources */,
 				002A3C2822C20939007CF73D /* selectDatesViewController.swift in Sources */,
 				006B19DE22B7E837005FB3F6 /* AppDelegate.swift in Sources */,
 				00DAF10622BD0B91005798C7 /* optionsTableViewCell.swift in Sources */,
