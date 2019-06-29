@@ -34,8 +34,8 @@ class introViewController: UIViewController , PaperOnboardingDataSource {
         let descirptionFont = UIFont(name: "AvenirNext-Regular", size: 18)!
         return [
             OnboardingItemInfo(informationImage: UIImage(named: "fitnessGraph")!,
-                               title: "BeFit : Fitness tracker",
-                               description: "A fitness analytics tool to track your weight loss",
+                               title: "BeFit : Weight loss tracker",
+                               description: "A fitness analytics tool to track and monitor your weight loss",
                                pageIcon: UIImage(named: "nothing")!,
                                color: backgroundColorOne,
                                titleColor: UIColor.white,
@@ -43,9 +43,9 @@ class introViewController: UIViewController , PaperOnboardingDataSource {
                                titleFont: titleFont,
                                descriptionFont: descirptionFont),
             
-            OnboardingItemInfo(informationImage: UIImage(named: "fitnessGraph")!,
-                               title: "Get detialed reports",
-                               description: "Get detailed analytics reports to know your progress",
+            OnboardingItemInfo(informationImage: UIImage(named: "weightScalePng")!,
+                               title: "What gets measured gets managed",
+                               description: "Daily add your weight and manage your weight loss",
                                pageIcon: UIImage(named: "nothing")!,
                                color: backgroundColorTwo,
                                titleColor: UIColor.white,

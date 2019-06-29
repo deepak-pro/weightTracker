@@ -82,7 +82,7 @@
                                             <action selector="optionbuttonTouchDown:" destination="BYZ-38-t0r" eventType="touchDown" id="eOm-5r-eH0"/>
                                         </connections>
                                     </button>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Weight Analytics" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SGM-jG-oNX">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Weight Tracker" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SGM-jG-oNX">
                                         <rect key="frame" x="66" y="8" width="231" height="42"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="42" id="C4n-Xz-Quq"/>
@@ -425,7 +425,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Jfc-DK-1jQ">
-                                                    <rect key="frame" x="32" y="23" width="300" height="34"/>
+                                                    <rect key="frame" x="32" y="23" width="261" height="34"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="34" id="73P-Z5-FkD"/>
                                                     </constraints>
@@ -434,7 +434,7 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="forwardArrow" translatesAutoresizingMaskIntoConstraints="NO" id="JOI-Fn-VwG">
-                                                    <rect key="frame" x="343" y="20" width="40" height="40"/>
+                                                    <rect key="frame" x="304" y="20" width="40" height="40"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="40" id="R4C-10-q2m"/>
                                                         <constraint firstAttribute="width" constant="40" id="cvA-ig-dq9"/>
@@ -541,7 +541,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="86.5 kg" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4uD-dF-bcs">
-                                                    <rect key="frame" x="261" y="18" width="126" height="54"/>
+                                                    <rect key="frame" x="222" y="18" width="126" height="54"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="54" id="a6f-9n-n8J"/>
                                                         <constraint firstAttribute="width" constant="126" id="r0i-ze-kzP"/>
@@ -551,7 +551,7 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="24/06/2019" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6TN-Bd-YzV">
-                                                    <rect key="frame" x="15" y="18" width="179" height="54"/>
+                                                    <rect key="frame" x="15" y="18" width="140" height="54"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="54" id="n5C-52-a8X"/>
                                                     </constraints>
@@ -914,7 +914,7 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="----" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qiY-oS-ViX">
-                                                    <rect key="frame" x="245" y="20.5" width="142" height="39"/>
+                                                    <rect key="frame" x="245" y="20.5" width="103" height="39"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="39" id="yaB-e0-tDg"/>
                                                     </constraints>
