@@ -61,12 +61,16 @@ class showDatesViewController: UIViewController , UITableViewDelegate , UITableV
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "showDatesCell", for: indexPath) as! showDatesTableViewCell
         cell.dateLabel.text = formatDate(date: records[indexPath.row].date!)
-        cell.weightLabel.text = String(records[indexPath.row].weight)
+        cell.weightLabel.text = String(records[indexPath.row].weight) + " kg"
         return cell
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 90.0
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: false)
     }
     
     func fetchData(){

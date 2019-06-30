@@ -11,6 +11,9 @@ import ScrollableGraphView
 import AudioToolbox
 import RealmSwift
 
+
+var justEntered = true
+
 class ViewController: UIViewController , ScrollableGraphViewDataSource , UIViewControllerTransitioningDelegate {
 
     @IBOutlet weak var backView: UIView!
@@ -21,7 +24,6 @@ class ViewController: UIViewController , ScrollableGraphViewDataSource , UIViewC
     var maxScale : Double = 70
     var minScale : Double = 66
     var graphView = ScrollableGraphView()
-    
     let realm = try! Realm()
     
     @IBOutlet weak var latestWeightLabel: UILabel!
@@ -172,7 +174,12 @@ class ViewController: UIViewController , ScrollableGraphViewDataSource , UIViewC
     }
     
     func loadChartAnalytics(){
-        graphView.removeFromSuperview()
+        if justEntered {
+            justEntered = false
+        }else {
+            graphView.removeFromSuperview()
+        }
+        
         linePlotData.removeAll()
         linePlotScale.removeAll()
         if scaleSegment.selectedSegmentIndex == 0 {
@@ -329,12 +336,6 @@ class ViewController: UIViewController , ScrollableGraphViewDataSource , UIViewC
         loadChartAnalytics()
         self.cardViewController.view.layer.cornerRadius = 0
         
-    }
-    
-    func popupDidDisappear(){
-        print("Doing Stuff")
-        loadStackAnalytics()
-        loadChartAnalytics()
     }
     
     func setUpCard(){
