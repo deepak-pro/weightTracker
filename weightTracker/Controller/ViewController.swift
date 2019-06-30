@@ -412,6 +412,7 @@ class ViewController: UIViewController , ScrollableGraphViewDataSource , UIViewC
                     self.cardViewController.view.layer.cornerRadius = 0
                     self.updatelatestWeightlabel()
                     self.loadChartAnalytics()
+                    self.loadStackAnalytics()
                 }
             }
             
