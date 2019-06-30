@@ -113,7 +113,7 @@ class CardViewController: UIViewController  , UIPickerViewDelegate , UIPickerVie
     override func viewDidLoad() {
         super.viewDidLoad()
         var weightNumber = 40
-        for number in 1...80 {
+        for number in 1...150 {
             weightArray.append((weightNumber))
             weightNumber = weightNumber + 1
         }
