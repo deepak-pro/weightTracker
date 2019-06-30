@@ -54,7 +54,7 @@ class introViewController: UIViewController , PaperOnboardingDataSource {
                                descriptionFont: descirptionFont),
             
             OnboardingItemInfo(informationImage: UIImage(named: "fitnessGraph")!,
-                               title: "Get detialed reports",
+                               title: "Get detailed reports",
                                description: "Get detailed analytics reports to know your progress",
                                pageIcon: UIImage(named: "nothing")!,
                                color: backgroundColorOne,
