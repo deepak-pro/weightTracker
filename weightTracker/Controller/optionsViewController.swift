@@ -47,10 +47,6 @@ class optionsViewController: UIViewController , UITableViewDelegate , UITableVie
             performSegue(withIdentifier: "selectDates", sender: self)
         }
         
-        if indexPath.row == 2 {
-            performSegue(withIdentifier: "setPre", sender: self)
-        }
-        
         if indexPath.row == options.count - 1 {
             let alert = UIAlertController(title: "Are you sure you want to delete all the records", message: "This action will delete all the records you added", preferredStyle: .actionSheet)
             alert.addAction(UIAlertAction(title: "Delete", style: .destructive, handler: { (action) in
