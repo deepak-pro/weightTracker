@@ -34,7 +34,7 @@ class introViewController: UIViewController , PaperOnboardingDataSource {
         let descirptionFont = UIFont(name: "AvenirNext-Regular", size: 18)!
         return [
             OnboardingItemInfo(informationImage: UIImage(named: "fitnessGraph")!,
-                               title: "BeFit : Weight loss tracker",
+                               title: "Weight loss Tracker",
                                description: "A fitness analytics tool to track and monitor your weight loss",
                                pageIcon: UIImage(named: "nothing")!,
                                color: backgroundColorOne,
