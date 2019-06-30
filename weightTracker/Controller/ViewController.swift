@@ -174,11 +174,11 @@ class ViewController: UIViewController , ScrollableGraphViewDataSource , UIViewC
     }
     
     func loadChartAnalytics(){
-        if justEntered {
-            justEntered = false
-        }else {
-            graphView.removeFromSuperview()
-        }
+//        if justEntered {
+//            justEntered = false
+//        }else {
+//            graphView.removeFromSuperview()
+//        }
         
         linePlotData.removeAll()
         linePlotScale.removeAll()
@@ -321,7 +321,8 @@ class ViewController: UIViewController , ScrollableGraphViewDataSource , UIViewC
             graphView.leadingAnchor.constraint(equalTo : backView.leadingAnchor, constant : 0).isActive = true
             graphView.trailingAnchor.constraint(equalTo : backView.trailingAnchor , constant : 0 ).isActive = true
             graphView.topAnchor.constraint(equalTo: backView.topAnchor, constant: 0).isActive = true
-            graphView.heightAnchor.constraint(equalToConstant: backView.frame.height).isActive = true
+            //graphView.heightAnchor.constraint(equalToConstant: backView.frame.height).isActive = true
+            graphView.bottomAnchor.constraint(equalTo: backView.bottomAnchor, constant: 0).isActive = true
         }
     }
     
