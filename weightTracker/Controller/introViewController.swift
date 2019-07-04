@@ -33,7 +33,7 @@ class introViewController: UIViewController , PaperOnboardingDataSource {
         let titleFont = UIFont(name: "AvenirNext-Bold", size: 24)!
         let descirptionFont = UIFont(name: "AvenirNext-Regular", size: 18)!
         return [
-            OnboardingItemInfo(informationImage: UIImage(named: "fitnessGraph")!,
+            OnboardingItemInfo(informationImage: UIImage(named: "icon")!,
                                title: "Weight loss Tracker",
                                description: "A fitness analytics tool to track and monitor your weight loss",
                                pageIcon: UIImage(named: "nothing")!,

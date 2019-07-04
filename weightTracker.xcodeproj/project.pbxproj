@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		000E07EE22CDC462003424E4 /* exportDataViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 000E07ED22CDC462003424E4 /* exportDataViewController.swift */; };
 		002A3C2822C20939007CF73D /* selectDatesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 002A3C2722C20939007CF73D /* selectDatesViewController.swift */; };
 		002EFD7A22BCF50800AA7EAB /* CircularTransition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 002EFD7922BCF50800AA7EAB /* CircularTransition.swift */; };
 		003FDE5022C38FFE00D4972B /* NotificationCenter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 003FDE4F22C38FFE00D4972B /* NotificationCenter.framework */; };
@@ -58,6 +59,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		000E07ED22CDC462003424E4 /* exportDataViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = exportDataViewController.swift; sourceTree = "<group>"; };
 		002A3C2722C20939007CF73D /* selectDatesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = selectDatesViewController.swift; sourceTree = "<group>"; };
 		002EFD7922BCF50800AA7EAB /* CircularTransition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircularTransition.swift; sourceTree = "<group>"; };
 		003FDE4E22C38FFE00D4972B /* Latest Updated Weight.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "Latest Updated Weight.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -179,6 +181,7 @@
 				002A3C2722C20939007CF73D /* selectDatesViewController.swift */,
 				005F4B5622C448650094F586 /* showDatesViewController.swift */,
 				0044DB8A22C4BDFC007972A5 /* setPreviousViewController.swift */,
+				000E07ED22CDC462003424E4 /* exportDataViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -398,6 +401,7 @@
 				005F4B5722C448650094F586 /* showDatesViewController.swift in Sources */,
 				006B19E022B7E837005FB3F6 /* ViewController.swift in Sources */,
 				009B1E0B22C7300C00F9B00B /* OnboardingView.swift in Sources */,
+				000E07EE22CDC462003424E4 /* exportDataViewController.swift in Sources */,
 				0044DB8B22C4BDFC007972A5 /* setPreviousViewController.swift in Sources */,
 				006AF24A22C1ADDF00E11419 /* Record.swift in Sources */,
 				005F4B5922C449D00094F586 /* showDatesTableViewCell.swift in Sources */,
