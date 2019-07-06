@@ -28,6 +28,7 @@ class setPreviousViewController: UIViewController , FSCalendarDelegate , FSCalen
         calender.backgroundColor = UIColor.white
         calender.layer.cornerRadius = CGFloat(20.0)
         
+        
         calender.layer.shadowColor = UIColor.gray.cgColor
         calender.layer.shadowOffset = CGSize(width: 0.0, height: 0.0)
         calender.layer.shadowRadius = 12.0
@@ -39,13 +40,14 @@ class setPreviousViewController: UIViewController , FSCalendarDelegate , FSCalen
         view.addSubview(calender)
         self.calender = calender
         
+        
+        calender.translatesAutoresizingMaskIntoConstraints = false
         calender.translatesAutoresizingMaskIntoConstraints = false
         calender.leadingAnchor.constraint(equalTo: self.view.leadingAnchor, constant: 16).isActive = true
         calender.trailingAnchor.constraint(equalTo: self.view.trailingAnchor, constant: -16).isActive = true
         calender.heightAnchor.constraint(equalToConstant: 400).isActive = true
         calender.centerYAnchor.constraint(equalTo: self.view.centerYAnchor).isActive = true
         
-        // Can animate popup
     }
     
     
