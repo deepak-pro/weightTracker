@@ -87,11 +87,36 @@ class exportDataViewController: UIViewController {
     }
     
     @IBAction func exportButtonTapped(_ sender: Any) {
-        SVProgressHUD.show()
-        DispatchQueue.main.async {
-            self.saveHtmlToPdf(htmlString: self.finalHtml, witName: "output")
-        }
-        SVProgressHUD.dismiss()
+    
+//        let messageView = UIView()
+//        messageView.backgroundColor = UIColor.darkGray
+//        messageView.layer.cornerRadius = CGFloat(10.0)
+//        messageView.clipsToBounds = true
+//        self.view.addSubview(messageView)
+//        messageView.translatesAutoresizingMaskIntoConstraints = false
+//        messageView.centerXAnchor.constraint(equalTo: self.view.centerXAnchor).isActive = true
+//        messageView.centerYAnchor.constraint(equalTo: self.view.centerYAnchor).isActive = true
+//        messageView.leadingAnchor.constraint(equalTo: self.view.leadingAnchor, constant: 16).isActive = true
+//        messageView.trailingAnchor.constraint(equalTo: self.view.trailingAnchor, constant: -16).isActive = true
+//        messageView.heightAnchor.constraint(equalToConstant: CGFloat(100)).isActive = true
+//
+//        let label = UILabel()
+//        label.text = "Creating PDF..."
+//        label.textColor = UIColor.white
+//        label.textAlignment = .center
+//        messageView.addSubview(label)
+//
+//        label.translatesAutoresizingMaskIntoConstraints = false
+//        label.centerXAnchor.constraint(equalTo: messageView.centerXAnchor).isActive = true
+//        label.centerYAnchor.constraint(equalTo: messageView.centerYAnchor).isActive = true
+//        label.leadingAnchor.constraint(equalTo: messageView.leadingAnchor, constant: 10).isActive = true
+//        label.trailingAnchor.constraint(equalTo: messageView.trailingAnchor, constant: -10).isActive = true
+//        label.heightAnchor.constraint(equalToConstant: CGFloat(40)).isActive = true
+        
+        self.saveHtmlToPdf(htmlString: self.finalHtml, witName: "output")
+        
+        
+        
         
     }
     
@@ -124,12 +149,16 @@ class exportDataViewController: UIViewController {
         
         UIGraphicsEndPDFContext()
         
-        guard let outputURL = try? FileManager.default.url(for: .documentDirectory, in: .userDomainMask, appropriateFor: nil, create: false).appendingPathComponent("output").appendingPathExtension("pdf")
+        guard let outputURL = try? FileManager.default.url(for: .documentDirectory, in: .userDomainMask, appropriateFor: nil, create: false).appendingPathComponent("Weight Loss Report").appendingPathExtension("pdf")
             else { fatalError("Destination URL not created")
         }
         
         print("Path is \(outputURL)")
         pdfData.write(to: outputURL, atomically: true)
+        
+        let activityViewController: UIActivityViewController = UIActivityViewController(activityItems: [outputURL], applicationActivities: nil)
+        activityViewController.popoverPresentationController?.sourceView=self.view
+        self.present(activityViewController, animated: true, completion: nil)
         
     }
     

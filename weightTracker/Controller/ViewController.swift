@@ -10,6 +10,7 @@ import UIKit
 import ScrollableGraphView
 import AudioToolbox
 import RealmSwift
+import SVProgressHUD
 
 
 var justEntered = true
@@ -331,7 +332,6 @@ class ViewController: UIViewController , ScrollableGraphViewDataSource , UIViewC
         updatelatestWeightlabel()
         maxScale = linePlotData.max() ?? 150 + Double(2)
         minScale = linePlotData.min() ?? 50 - Double(2)
-        
         setUpCard()
         loadStackAnalytics()
         loadChartAnalytics()
