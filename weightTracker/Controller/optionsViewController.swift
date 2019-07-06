@@ -12,15 +12,12 @@ import StoreKit
 import RealmSwift
 
 
-
-
-
 class optionsViewController: UIViewController , UITableViewDelegate , UITableViewDataSource {
     
     
     let realm = try! Realm()
     
-    var options : [String] = ["History" , "Select history dates" , "Export Data" , "Rate this app" ,  "Delete All Records"]
+    var options : [String] = ["History" , "Select history dates" , "Export Data" ,"Set previous data", "Rate this app" ,  "Delete All Records"]
     
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -49,6 +46,10 @@ class optionsViewController: UIViewController , UITableViewDelegate , UITableVie
         
         if indexPath.row == 2 {
             performSegue(withIdentifier: "exportData", sender: self)
+        }
+        
+        if indexPath.row == 3 {
+            performSegue(withIdentifier: "setPre", sender: self)
         }
         
         if indexPath.row == options.count - 1 {

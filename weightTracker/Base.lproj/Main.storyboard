@@ -734,9 +734,12 @@
                                     <constraint firstItem="o3Y-1g-f55" firstAttribute="centerY" secondItem="y7m-rm-Z4H" secondAttribute="centerY" id="zQ0-DY-80T"/>
                                 </constraints>
                             </view>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="deH-QE-iPY">
-                                <rect key="frame" x="234" y="140" width="125" height="51"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="deH-QE-iPY">
+                                <rect key="frame" x="75.5" y="485" width="169" height="51"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="169" id="QDE-QC-6mT"/>
+                                    <constraint firstAttribute="height" constant="51" id="kRN-cK-9Gx"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
                                 <state key="normal" title="ADD DATA">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -745,18 +748,25 @@
                                     <action selector="addDate:" destination="6RS-1q-h5P" eventType="touchUpInside" id="yFw-Xq-lxA"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QQI-tV-YON">
-                                <rect key="frame" x="159" y="140" width="56" height="52"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Button" image="Calender"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QQI-tV-YON">
+                                <rect key="frame" x="53.5" y="242" width="213" height="43"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="43" id="3e4-JC-1Mk"/>
+                                    <constraint firstAttribute="width" constant="213" id="Lvm-9B-tOb"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="AvenirNextCondensed-Regular" family="Avenir Next Condensed" pointSize="20"/>
+                                <state key="normal" title="Tap tp select date"/>
                                 <connections>
                                     <action selector="setUpCalenderView:" destination="6RS-1q-h5P" eventType="touchUpInside" id="MZw-xS-kyD"/>
                                 </connections>
                             </button>
-                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="zno-q9-QIx">
-                                <rect key="frame" x="16" y="144" width="120" height="45"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="zno-q9-QIx">
+                                <rect key="frame" x="95" y="152" width="130" height="50"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="130" id="bkm-bu-NbM"/>
+                                    <constraint firstAttribute="height" constant="50" id="xJe-SS-QXc"/>
+                                </constraints>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" name="AvenirNextCondensed-Regular" family="Avenir Next Condensed" pointSize="25"/>
                                 <textInputTraits key="textInputTraits" keyboardType="decimalPad" enablesReturnKeyAutomatically="YES"/>
@@ -767,22 +777,41 @@
                                     <userDefinedRuntimeAttribute type="boolean" keyPath="clipToBounds" value="YES"/>
                                 </userDefinedRuntimeAttributes>
                             </textField>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Kg" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Huv-Ot-3nW">
+                                <rect key="frame" x="240" y="156" width="48" height="42"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="42" id="4ni-Ju-QNb"/>
+                                    <constraint firstAttribute="width" constant="48" id="PSs-vI-55G"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="AvenirNextCondensed-Regular" family="Avenir Next Condensed" pointSize="28"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" red="0.1803921568627451" green="0.52549019607843139" blue="0.80784313725490198" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
+                            <constraint firstItem="QQI-tV-YON" firstAttribute="centerX" secondItem="2ZQ-g6-LW6" secondAttribute="centerX" id="5uV-Tv-aKy"/>
                             <constraint firstItem="y7m-rm-Z4H" firstAttribute="top" secondItem="fvz-du-4lk" secondAttribute="top" id="AGR-h3-XMf"/>
+                            <constraint firstItem="deH-QE-iPY" firstAttribute="centerX" secondItem="2ZQ-g6-LW6" secondAttribute="centerX" id="B34-rq-WFM"/>
+                            <constraint firstItem="QQI-tV-YON" firstAttribute="top" secondItem="zno-q9-QIx" secondAttribute="bottom" constant="40" id="CJC-JK-OjZ"/>
                             <constraint firstItem="y7m-rm-Z4H" firstAttribute="leading" secondItem="fvz-du-4lk" secondAttribute="leading" constant="6" id="S3z-aa-grT"/>
+                            <constraint firstItem="Huv-Ot-3nW" firstAttribute="centerY" secondItem="zno-q9-QIx" secondAttribute="centerY" id="VYo-Wy-s6o"/>
+                            <constraint firstItem="zno-q9-QIx" firstAttribute="centerX" secondItem="2ZQ-g6-LW6" secondAttribute="centerX" id="asb-N6-zT5"/>
+                            <constraint firstItem="fvz-du-4lk" firstAttribute="bottom" secondItem="deH-QE-iPY" secondAttribute="bottom" constant="32" id="haG-1i-oh9"/>
+                            <constraint firstItem="zno-q9-QIx" firstAttribute="top" secondItem="y7m-rm-Z4H" secondAttribute="bottom" constant="32" id="pQU-jx-1oT"/>
+                            <constraint firstItem="Huv-Ot-3nW" firstAttribute="leading" secondItem="zno-q9-QIx" secondAttribute="trailing" constant="15" id="xdo-wA-p8u"/>
                             <constraint firstItem="fvz-du-4lk" firstAttribute="trailing" secondItem="y7m-rm-Z4H" secondAttribute="trailing" constant="6" id="yPx-g4-LCY"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="fvz-du-4lk"/>
                     </view>
                     <connections>
+                        <outlet property="selectDateButton" destination="QQI-tV-YON" id="TrL-ae-9ee"/>
                         <outlet property="weightTextFeild" destination="zno-q9-QIx" id="LEu-r1-cac"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Cka-UF-aZR" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-151.19999999999999" y="884.70764617691157"/>
+            <point key="canvasLocation" x="-151.875" y="884.15492957746483"/>
         </scene>
         <!--Select Dates View Controller-->
         <scene sceneID="K2i-BU-fhP">
@@ -1057,7 +1086,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="Calender" width="300" height="300"/>
         <image name="backArrow" width="100" height="100"/>
         <image name="close" width="100" height="100"/>
         <image name="forwardArrow" width="80" height="80"/>

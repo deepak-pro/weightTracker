@@ -10,15 +10,48 @@ import UIKit
 import FSCalendar
 import RealmSwift
 
-class setPreviousViewController: UIViewController , FSCalendarDelegate , FSCalendarDataSource  {
+class setPreviousViewController: UIViewController , FSCalendarDelegate , FSCalendarDataSource , UITextFieldDelegate  {
 
     fileprivate weak var calender : FSCalendar!
+    @IBOutlet weak var selectDateButton: UIButton!
     let realm = try! Realm()
     @IBOutlet weak var weightTextFeild: UITextField!
+    var selectedDate : Date?
+    
+    var newCaseID = Int()
+    var id : Int = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        weightTextFeild.delegate = self
+        weightTextFeild.returnKeyType = .done
         
+        let doneToolbar: UIToolbar = UIToolbar(frame: CGRect.init(x: 0, y: 0, width: UIScreen.main.bounds.width, height: 50))
+        doneToolbar.barStyle = .default
+        
+        let flexSpace = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil)
+        let done: UIBarButtonItem = UIBarButtonItem(title: "Done", style: .done, target: self, action: #selector(self.doneButtonAction))
+        
+        let items = [flexSpace, done]
+        doneToolbar.items = items
+        doneToolbar.sizeToFit()
+        
+        self.weightTextFeild.inputAccessoryView = doneToolbar
+    }
+    
+    @objc func doneButtonAction(){
+        weightTextFeild.resignFirstResponder()
+    }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.endEditing(true)
+        return false
+    }
+    
+    func calendar(_ calendar: FSCalendar, didSelect date: Date, at monthPosition: FSCalendarMonthPosition) {
+        selectedDate = date
+        selectDateButton.setTitle(formatDate(date: selectedDate!), for: .normal)
+        calendar.removeFromSuperview()
     }
     
     @IBAction func setUpCalenderView(_ sender: Any) {
@@ -27,7 +60,6 @@ class setPreviousViewController: UIViewController , FSCalendarDelegate , FSCalen
         calender.delegate = self
         calender.backgroundColor = UIColor.white
         calender.layer.cornerRadius = CGFloat(20.0)
-        
         
         calender.layer.shadowColor = UIColor.gray.cgColor
         calender.layer.shadowOffset = CGSize(width: 0.0, height: 0.0)
@@ -50,15 +82,51 @@ class setPreviousViewController: UIViewController , FSCalendarDelegate , FSCalen
         
     }
     
+    func maximumDate(for calendar: FSCalendar) -> Date {
+        return Calendar.current.date(byAdding: .day, value: -1, to: Date())!
+    }
+    
+    func formatDate(date : Date) -> String {
+        let formatter = DateFormatter()
+        formatter.dateFormat = "MMMM  dd,  yyyy"
+        let result = formatter.string(from: date)
+        return result
+    }
+    
+    func getCaseID() -> Int {
+        newCaseID = 1
+        if (UserDefaults.standard.object(forKey: "caseID") as? Int == nil ){
+            UserDefaults.standard.set(1, forKey: "caseID")
+            print("Case Id variable created.")
+        }else{
+            id = UserDefaults.standard.object(forKey: "caseID") as! Int
+            newCaseID = id + 1
+            UserDefaults.standard.set(newCaseID , forKey: "caseID")
+        }
+        return (newCaseID)
+    }
+    
+    func checkRedundancy(forDate : Date){
+        
+    }
+    
     
     @IBAction func addDate(_ sender: Any) {
-        let newRecord = Record()
-        newRecord.date = calender.selectedDate
-        newRecord.weight = Double(weightTextFeild.text!)!
-        newRecord.id = 1
-        try! realm.write {
-            realm.add(newRecord)
+        if selectedDate == nil {
+            let alert = UIAlertController(title: "Please select date", message: "", preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "ok", style: .default, handler: nil))
+            present(alert ,animated: true , completion: nil)
+            return
         }
+        if weightTextFeild.text!.isEmpty{
+            let alert = UIAlertController(title: "Please enter weight", message: "", preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "ok", style: .default, handler: nil))
+            present(alert ,animated: true , completion: nil)
+            return
+        }
+        
+        
+        
     }
     
     @IBAction func backButton(_ sender: Any) {
