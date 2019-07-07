@@ -107,7 +107,20 @@ class setPreviousViewController: UIViewController , FSCalendarDelegate , FSCalen
     }
     
     func checkRedundancy(forDate : Date){
-        
+        let resultDates = realm.objects(Record.self).sorted(byKeyPath: "date", ascending: false)
+        for result in resultDates {
+            if formatDate(date: forDate) == formatDate(date: result.date!){
+                print("✅ Record Existed")
+                let toDelete = realm.objects(Record.self).filter("id = \(result.id)")
+                print(toDelete)
+                try! realm.write {
+                    realm.delete(toDelete)
+                    print("Redundant record Deleted")
+                }
+                return
+            }
+        }
+        print(" ❌ Record Not Existed")
     }
     
     
@@ -124,8 +137,19 @@ class setPreviousViewController: UIViewController , FSCalendarDelegate , FSCalen
             present(alert ,animated: true , completion: nil)
             return
         }
-        
-        
+        checkRedundancy(forDate: selectedDate!)
+        let newRecord = Record()
+        newRecord.id = getCaseID()
+        newRecord.date = selectedDate
+        newRecord.weight = Double(weightTextFeild.text!)!
+        try! realm.write {
+            realm.add(newRecord)
+            let alert = UIAlertController(title: "Record added successfully", message: "Statitics are now updated", preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "ok", style: .default, handler: { (action) in
+                self.dismiss(animated: true, completion: nil)
+            }))
+            present(alert,animated: true , completion: nil)
+        }
         
     }
     
