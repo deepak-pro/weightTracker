@@ -15,6 +15,8 @@
 		003FDE5622C38FFE00D4972B /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 003FDE5422C38FFE00D4972B /* MainInterface.storyboard */; };
 		003FDE5A22C38FFE00D4972B /* Latest Updated Weight.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 003FDE4E22C38FFE00D4972B /* Latest Updated Weight.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		0044DB8B22C4BDFC007972A5 /* setPreviousViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0044DB8A22C4BDFC007972A5 /* setPreviousViewController.swift */; };
+		0053839622DC8E13002A0767 /* purchaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0053839522DC8E13002A0767 /* purchaseViewController.swift */; };
+		0053839822DC91A8002A0767 /* purchaseTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0053839722DC91A8002A0767 /* purchaseTableViewCell.swift */; };
 		005E2B8C22BA99FC0072F513 /* CardViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 005E2B8B22BA99FB0072F513 /* CardViewController.xib */; };
 		005E2B8E22BA9A100072F513 /* CardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 005E2B8D22BA9A100072F513 /* CardViewController.swift */; };
 		005F4B5722C448650094F586 /* showDatesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 005F4B5622C448650094F586 /* showDatesViewController.swift */; };
@@ -72,6 +74,8 @@
 		003FDE6122C394C600D4972B /* RealmSwift.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = RealmSwift.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		003FDE6322C395EB00D4972B /* Realm.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Realm.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		0044DB8A22C4BDFC007972A5 /* setPreviousViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = setPreviousViewController.swift; sourceTree = "<group>"; };
+		0053839522DC8E13002A0767 /* purchaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = purchaseViewController.swift; sourceTree = "<group>"; };
+		0053839722DC91A8002A0767 /* purchaseTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = purchaseTableViewCell.swift; sourceTree = "<group>"; };
 		005E2B8B22BA99FB0072F513 /* CardViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CardViewController.xib; sourceTree = "<group>"; };
 		005E2B8D22BA9A100072F513 /* CardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardViewController.swift; sourceTree = "<group>"; };
 		005F4B5622C448650094F586 /* showDatesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = showDatesViewController.swift; sourceTree = "<group>"; };
@@ -182,6 +186,7 @@
 				005F4B5622C448650094F586 /* showDatesViewController.swift */,
 				0044DB8A22C4BDFC007972A5 /* setPreviousViewController.swift */,
 				000E07ED22CDC462003424E4 /* exportDataViewController.swift */,
+				0053839522DC8E13002A0767 /* purchaseViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -189,6 +194,7 @@
 		00E1DFF622BC9A4B001E835D /* View */ = {
 			isa = PBXGroup;
 			children = (
+				0053839722DC91A8002A0767 /* purchaseTableViewCell.swift */,
 				009B1E0A22C7300C00F9B00B /* OnboardingView.swift */,
 				005E2B8B22BA99FB0072F513 /* CardViewController.xib */,
 				002EFD7922BCF50800AA7EAB /* CircularTransition.swift */,
@@ -405,11 +411,13 @@
 				009B1E0B22C7300C00F9B00B /* OnboardingView.swift in Sources */,
 				000E07EE22CDC462003424E4 /* exportDataViewController.swift in Sources */,
 				0044DB8B22C4BDFC007972A5 /* setPreviousViewController.swift in Sources */,
+				0053839622DC8E13002A0767 /* purchaseViewController.swift in Sources */,
 				006AF24A22C1ADDF00E11419 /* Record.swift in Sources */,
 				005F4B5922C449D00094F586 /* showDatesTableViewCell.swift in Sources */,
 				00E2094622C13BF5003F827C /* historyTableViewCell.swift in Sources */,
 				00E1DFF822BC9A76001E835D /* optionsViewController.swift in Sources */,
 				00E2094422C13BB1003F827C /* historyViewController.swift in Sources */,
+				0053839822DC91A8002A0767 /* purchaseTableViewCell.swift in Sources */,
 				009B1E0922C72C5200F9B00B /* introViewController.swift in Sources */,
 				002A3C2822C20939007CF73D /* selectDatesViewController.swift in Sources */,
 				006B19DE22B7E837005FB3F6 /* AppDelegate.swift in Sources */,
