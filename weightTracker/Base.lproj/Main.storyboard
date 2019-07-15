@@ -755,7 +755,7 @@
                                     <constraint firstAttribute="width" constant="213" id="Lvm-9B-tOb"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="AvenirNextCondensed-Regular" family="Avenir Next Condensed" pointSize="20"/>
-                                <state key="normal" title="Tap tp select date"/>
+                                <state key="normal" title="Tap to select date"/>
                                 <connections>
                                     <action selector="setUpCalenderView:" destination="6RS-1q-h5P" eventType="touchUpInside" id="MZw-xS-kyD"/>
                                 </connections>
