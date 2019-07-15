@@ -7,8 +7,12 @@
 //
 
 import UIKit
+import SpriteKit
 
 class purchaseViewController: UIViewController  , UITableViewDelegate , UITableViewDataSource{
+    
+    
+    @IBOutlet weak var backView: UIView!
     
     var images = [UIImage(named: "icon"),UIImage(named: "pdf"),UIImage(named: "calenderIcon")]
     var titles = ["Add unlimited records","Export report as PDF","Set previous data"]
@@ -33,7 +37,16 @@ class purchaseViewController: UIViewController  , UITableViewDelegate , UITableV
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
+        if let view = backView as! SKView? {
+            let scene = GameScene(size: backView.bounds.size)
+            scene.scaleMode = .aspectFill
+            scene.backgroundColor = UIColor(red: 28/255, green: 31/255, blue: 29/255, alpha: 1.0)
+            view.presentScene(scene)
+            view.ignoresSiblingOrder = true
+            view.showsFPS = true
+            view.showsNodeCount = true
+        }
         
     }
     
