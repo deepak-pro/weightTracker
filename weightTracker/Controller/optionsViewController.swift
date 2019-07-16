@@ -45,11 +45,15 @@ class optionsViewController: UIViewController , UITableViewDelegate , UITableVie
         }
         
         if indexPath.row == 2 {
-            performSegue(withIdentifier: "exportData", sender: self)
+            if isPurchased() {
+                performSegue(withIdentifier: "exportData", sender: self)
+            }
         }
         
         if indexPath.row == 3 {
-            performSegue(withIdentifier: "setPre", sender: self)
+            if isPurchased() {
+                performSegue(withIdentifier: "setPre", sender: self)
+            }
         }
         
         if indexPath.row == options.count - 1 {
@@ -89,12 +93,20 @@ class optionsViewController: UIViewController , UITableViewDelegate , UITableVie
         }
     }
 
+    func isPurchased() -> Bool {
+        if(UserDefaults.standard.value(forKey: "purchased") as? Bool) == true {
+            return true
+        }else{
+            let purchaseView = storyboard!.instantiateViewController(withIdentifier: "purchase") as! purchaseViewController
+            self.present(purchaseView,animated: true ,completion: nil)
+            return false
+        }
+    }
     
     @IBOutlet weak var dismissButton: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
     }
     
     @IBAction func dismissAction(_ sender: Any) {
