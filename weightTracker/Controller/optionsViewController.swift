@@ -109,7 +109,7 @@ class optionsViewController: UIViewController , UITableViewDelegate , UITableVie
     override func viewDidLoad() {
         super.viewDidLoad()
         if !isPurchased() {
-            Timer.scheduledTimer(withTimeInterval: 1.0, repeats: false) { (timer) in
+            Timer.scheduledTimer(withTimeInterval: 0.5, repeats: false) { (timer) in
                 UIView.animate(withDuration: 1.0, animations: {
                     self.primeButtonObject.alpha = 1.0
                 })
@@ -120,8 +120,11 @@ class optionsViewController: UIViewController , UITableViewDelegate , UITableVie
     }
     
     @IBAction func primeButton(_ sender: Any) {
-        let purchaseView = storyboard!.instantiateViewController(withIdentifier: "purchase") as! purchaseViewController
-        self.present(purchaseView,animated: true ,completion: nil)
+        if !isPurchased(){
+            let purchaseView = storyboard!.instantiateViewController(withIdentifier: "purchase") as! purchaseViewController
+            self.present(purchaseView,animated: true ,completion: nil)
+        }
+        
     }
     
     @IBAction func dismissAction(_ sender: Any) {

@@ -9,6 +9,7 @@
 import UIKit
 import SpriteKit
 import SwiftyStoreKit
+import SVProgressHUD
 
 class purchaseViewController: UIViewController  , UITableViewDelegate , UITableViewDataSource{
     
@@ -48,8 +49,8 @@ class purchaseViewController: UIViewController  , UITableViewDelegate , UITableV
             scene.backgroundColor = UIColor(red: 28/255, green: 31/255, blue: 29/255, alpha: 1.0)
             view.presentScene(scene)
             view.ignoresSiblingOrder = true
-            view.showsFPS = true
-            view.showsNodeCount = true
+            //view.showsFPS = true
+            //view.showsNodeCount = true
             
             SwiftyStoreKit.retrieveProductsInfo(["Deepak.weightTracker.Purchase.full.version"]) { result in
                 if let product = result.retrievedProducts.first {
@@ -69,6 +70,7 @@ class purchaseViewController: UIViewController  , UITableViewDelegate , UITableV
     }
     
     func purchaseProduct(){
+        SVProgressHUD.show()
         SwiftyStoreKit.retrieveProductsInfo(["Deepak.weightTracker.Purchase.full.version"]) { result in
             if let product = result.retrievedProducts.first {
                 SwiftyStoreKit.purchaseProduct(product, quantity: 1, atomically: true) { result in
@@ -79,8 +81,9 @@ class purchaseViewController: UIViewController  , UITableViewDelegate , UITableV
                             SwiftyStoreKit.finishTransaction(product.transaction)
                         }
                         self.makeAvailabel()
+                        SVProgressHUD.dismiss()
                         print("Purchase Success: \(product.productId)")
-                        let alert = UIAlertController(title: "Purchase Successfull", message: "Thank you for supporting us. You can select any instrument and loop.", preferredStyle: .alert)
+                        let alert = UIAlertController(title: "Purchase Successfull", message: "Thank you for supporting us. You can now access all the features.", preferredStyle: .alert)
                         alert.addAction(UIAlertAction(title: "ok", style: .default, handler: { (action) in
                             self.dismiss(animated: true, completion: nil)
                         }))
@@ -91,6 +94,7 @@ class purchaseViewController: UIViewController  , UITableViewDelegate , UITableV
                         alert.addAction(UIAlertAction(title: "ok", style: .default, handler: { (action) in
                             print("Done")
                         }))
+                        SVProgressHUD.dismiss()
                         self.present(alert,animated: true, completion: nil)
                         
                         switch error.code {
@@ -111,7 +115,12 @@ class purchaseViewController: UIViewController  , UITableViewDelegate , UITableV
         }
     }
     
+    func example() {
+        
+    }
+    
     func restorePurchase(){
+        SVProgressHUD.show()
         SwiftyStoreKit.restorePurchases(atomically: true) { results in
             if results.restoreFailedPurchases.count > 0 {
                 print("Restore Failed: \(results.restoreFailedPurchases)")
@@ -119,6 +128,7 @@ class purchaseViewController: UIViewController  , UITableViewDelegate , UITableV
                 alert.addAction(UIAlertAction(title: "ok", style: .default, handler: { (action) in
                     print("Done")
                 }))
+                SVProgressHUD.dismiss()
                 self.present(alert,animated: true, completion: nil)
             }
             else if results.restoredPurchases.count > 0 {
@@ -128,6 +138,7 @@ class purchaseViewController: UIViewController  , UITableViewDelegate , UITableV
                 alert.addAction(UIAlertAction(title: "ok", style: .default, handler: { (action) in
                     self.dismiss(animated: true, completion: nil)
                 }))
+                SVProgressHUD.dismiss()
                 self.present(alert,animated: true, completion: nil)
                 
             }
@@ -137,6 +148,7 @@ class purchaseViewController: UIViewController  , UITableViewDelegate , UITableV
                 alert.addAction(UIAlertAction(title: "ok", style: .default, handler: { (action) in
                     print("Done")
                 }))
+                SVProgressHUD.dismiss()
                 self.present(alert,animated: true, completion: nil)
             }
         }
@@ -171,11 +183,11 @@ class purchaseViewController: UIViewController  , UITableViewDelegate , UITableV
     }
     
     @IBAction func purchaseButton(_ sender: Any) {
-        
+        purchaseProduct()
     }
     
     @IBAction func restoreButton(_ sender: Any) {
-        
+        restorePurchase()
     }
     
     @IBAction func closeButton(_ sender: Any) {
