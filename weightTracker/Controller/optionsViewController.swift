@@ -19,6 +19,7 @@ class optionsViewController: UIViewController , UITableViewDelegate , UITableVie
     
     var options : [String] = ["History" , "Select history dates" , "Export Data" ,"Set previous data", "Rate this app" ,  "Delete All Records"]
     
+    @IBOutlet weak var primeButtonObject: UIButton!
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return options.count
@@ -107,6 +108,20 @@ class optionsViewController: UIViewController , UITableViewDelegate , UITableVie
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        if !isPurchased() {
+            Timer.scheduledTimer(withTimeInterval: 1.0, repeats: false) { (timer) in
+                UIView.animate(withDuration: 1.0, animations: {
+                    self.primeButtonObject.alpha = 1.0
+                })
+            }
+        }else{
+            primeButtonObject.removeFromSuperview()
+        }
+    }
+    
+    @IBAction func primeButton(_ sender: Any) {
+        let purchaseView = storyboard!.instantiateViewController(withIdentifier: "purchase") as! purchaseViewController
+        self.present(purchaseView,animated: true ,completion: nil)
     }
     
     @IBAction func dismissAction(_ sender: Any) {

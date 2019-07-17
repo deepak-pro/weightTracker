@@ -385,7 +385,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ml9-IZ-qtG">
-                                        <rect key="frame" x="252" y="16" width="40" height="40"/>
+                                        <rect key="frame" x="252" y="30" width="40" height="40"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="40" id="OlE-Uq-Z3Y"/>
@@ -403,13 +403,26 @@
                                             <action selector="dismissTouchDown:" destination="ReN-Li-Mrg" eventType="touchDown" id="8sp-zD-CMW"/>
                                         </connections>
                                     </button>
+                                    <button opaque="NO" alpha="0.0" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ir7-U4-zRe">
+                                        <rect key="frame" x="16" y="25" width="50" height="50"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="50" id="P5E-4c-ohu"/>
+                                            <constraint firstAttribute="width" constant="50" id="abs-Mo-C7f"/>
+                                        </constraints>
+                                        <state key="normal" image="crown"/>
+                                        <connections>
+                                            <action selector="primeButton:" destination="ReN-Li-Mrg" eventType="touchUpInside" id="9xu-wg-H1F"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstItem="KPk-Ez-KZE" firstAttribute="centerX" secondItem="pkg-MH-X4y" secondAttribute="centerX" id="3r6-px-cUo"/>
+                                    <constraint firstItem="ir7-U4-zRe" firstAttribute="leading" secondItem="pkg-MH-X4y" secondAttribute="leading" constant="16" id="7Rk-wB-Ogh"/>
                                     <constraint firstItem="KPk-Ez-KZE" firstAttribute="centerY" secondItem="pkg-MH-X4y" secondAttribute="centerY" id="JFS-nN-j0y"/>
                                     <constraint firstAttribute="height" constant="100" id="QBZ-fl-ll3"/>
-                                    <constraint firstItem="ml9-IZ-qtG" firstAttribute="top" secondItem="pkg-MH-X4y" secondAttribute="top" constant="16" id="box-hC-1me"/>
+                                    <constraint firstItem="ir7-U4-zRe" firstAttribute="centerY" secondItem="KPk-Ez-KZE" secondAttribute="centerY" id="fQI-hs-fvN"/>
+                                    <constraint firstItem="ml9-IZ-qtG" firstAttribute="centerY" secondItem="KPk-Ez-KZE" secondAttribute="centerY" id="fZr-SE-WQE"/>
                                     <constraint firstAttribute="trailing" secondItem="ml9-IZ-qtG" secondAttribute="trailing" constant="16" id="fd6-NS-MSv"/>
                                 </constraints>
                             </view>
@@ -476,6 +489,7 @@
                     <navigationItem key="navigationItem" title="Options" id="3FO-uY-faw"/>
                     <connections>
                         <outlet property="dismissButton" destination="ml9-IZ-qtG" id="fQU-D8-R9r"/>
+                        <outlet property="primeButtonObject" destination="ir7-U4-zRe" id="aNn-6c-OmP"/>
                         <segue destination="uU8-by-Wfq" kind="show" identifier="showRecords" id="Kv3-VJ-2sD"/>
                         <segue destination="AKd-4h-cll" kind="show" identifier="selectDates" id="o0d-5x-EY9"/>
                         <segue destination="6RS-1q-h5P" kind="show" identifier="setPre" id="gmY-XZ-GCs"/>
@@ -484,7 +498,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="r6A-rL-Fvn" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="728.79999999999995" y="115.59220389805098"/>
+            <point key="canvasLocation" x="727.5" y="115.14084507042254"/>
         </scene>
         <!--History View Controller-->
         <scene sceneID="xJW-un-A1F">
@@ -1331,6 +1345,7 @@
         <image name="check" width="200" height="200"/>
         <image name="close" width="100" height="100"/>
         <image name="closeWhite" width="200" height="200"/>
+        <image name="crown" width="100" height="100"/>
         <image name="forwardArrow" width="80" height="80"/>
         <image name="menuBar" width="80" height="80"/>
         <image name="upload" width="100" height="100"/>
