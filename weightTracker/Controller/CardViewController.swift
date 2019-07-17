@@ -170,6 +170,17 @@ class CardViewController: UIViewController  , UIPickerViewDelegate , UIPickerVie
     }
     
     @IBAction func doneButton(_ sender: Any) {
+        
+        print("Number of Records are \(noOfrecords())")
+        if (!isPurchased() && (noOfrecords() >= 4)){
+            print("❌ Not Allowed to insert record")
+            let storyBoard : UIStoryboard = UIStoryboard(name: "Main", bundle:nil)
+            let nextViewController = storyBoard.instantiateViewController(withIdentifier: "purchase") as! purchaseViewController
+            self.present(nextViewController, animated:true, completion:nil)
+            return
+        }
+        
+        
         let blueShade = UIColor(red: 0/255, green: 134/255, blue: 206/255, alpha: 1.0)
         
         doneButtonOut.backgroundColor = blueShade
@@ -195,6 +206,19 @@ class CardViewController: UIViewController  , UIPickerViewDelegate , UIPickerVie
         }
         
         
+    }
+    
+    func noOfrecords() -> Int {
+        let result = realm.objects(Record.self)
+        return result.count
+    }
+    
+    func isPurchased() -> Bool {
+        if(UserDefaults.standard.value(forKey: "purchased") as? Bool) == true {
+            return true
+        }else{
+            return false
+        }
     }
     
     @IBAction func saveTouchDown(_ sender: Any) {

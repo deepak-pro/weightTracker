@@ -1111,10 +1111,10 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="b59-gU-4pg">
-                                <rect key="frame" x="70" y="429" width="180" height="50"/>
+                                <rect key="frame" x="60" y="429" width="200" height="50"/>
                                 <color key="backgroundColor" red="0.22206181287765503" green="0.6308932900428772" blue="0.95453327894210815" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="180" id="hcf-As-FZb"/>
+                                    <constraint firstAttribute="width" constant="200" id="hcf-As-FZb"/>
                                     <constraint firstAttribute="height" constant="50" id="mDY-ZF-O9g"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="AvenirNextCondensed-Regular" family="Avenir Next Condensed" pointSize="24"/>
