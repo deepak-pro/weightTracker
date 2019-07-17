@@ -76,7 +76,6 @@ class purchaseViewController: UIViewController  , UITableViewDelegate , UITableV
                 SwiftyStoreKit.purchaseProduct(product, quantity: 1, atomically: true) { result in
                     switch result {
                     case .success(let product):
-                        // fetch content from your server, then:
                         if product.needsFinishTransaction {
                             SwiftyStoreKit.finishTransaction(product.transaction)
                         }
@@ -115,9 +114,6 @@ class purchaseViewController: UIViewController  , UITableViewDelegate , UITableV
         }
     }
     
-    func example() {
-        
-    }
     
     func restorePurchase(){
         SVProgressHUD.show()
